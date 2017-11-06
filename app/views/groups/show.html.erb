@@ -13,9 +13,9 @@
 <h3>Projects</h3>
 <ul>
   <% for @project in @group.projects %>
-      <li><%= @project.name %>: <%= @project.description %></li>
+      <li><%= link_to @project.name, add_projects_path(@project) %>: <%= link_to @project.description, add_projects_path(@project) %></li>
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Edit', edit_group_path(@group) %>
 <%= link_to 'Back', groups_path %>
