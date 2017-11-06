@@ -1,0 +1,28 @@
+<%= form_with(model: group, local: true) do |form| %>
+
+    <p>
+      <strong>Class</strong>
+      <%= @group.title %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @group.description %>
+    </p>
+
+    <div class="form-group">
+      <h3>Add Projects</h3>
+      <%= form.nested_fields_for :projects do |project| %>
+          <b>Project Name: </b>
+          <%= project.text_field :name %> <br />
+          <b>Description: </b>
+          <%= project.text_field :description %>
+          <%= project.remove_nested_fields_link %>
+      <% end %>
+      <%= form.add_nested_fields_link :projects %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit 'Add' %>
+    </div>
+<% end %>

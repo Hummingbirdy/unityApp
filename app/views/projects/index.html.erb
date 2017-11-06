@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <h1>Projects</h1>
+</div>
+<br />
+  <% @projects.each do |project| %>
+    <div class="col-md-4">
+      <div class="project-box">
+        <b>Project: </b><%= project.name %>
+        <b>Description: </b><%= project.description %>
+        <div align="right">
+          <%= link_to 'Show', project %>
+          <%= link_to 'Add Task', add_projects_path(project) %>
+          <%= link_to 'Edit', edit_project_path(project) %>
+          <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+<br>
+
