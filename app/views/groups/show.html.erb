@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @group.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @group.description %>
+</p>
+
+<h3>Projects</h3>
+<ul>
+  <% for @project in @group.projects %>
+      <li><%= @project.name %>: <%= @project.description %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

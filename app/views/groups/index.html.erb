@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <h1>Classes</h1>
+  <%= link_to 'New Class', new_group_path %>
+</div>
+<br />
+    <% @groups.each do |group| %>
+      <div class="col-md-4">
+        <div class="group-box">
+          <b>Class: </b><%= group.title %><br />
+          <b>Description: </b><%= group.description %>
+          <div align="right">
+            <%= link_to 'Show', group %>
+            <%= link_to 'Add Project', add_groups_path(group) %>
+            <%= link_to 'Edit', edit_group_path(group) %>
+            <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+<br>
+
+
