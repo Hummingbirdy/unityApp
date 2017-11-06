@@ -1,12 +1,17 @@
+
 <p id="notice"><%= notice %></p>
-<div class="row">
-  <h1>Classes</h1>
-  <%= link_to 'New Class', new_group_path %>
-</div>
-<br />
-    <% @groups.each do |group| %>
-      <div class="col-md-4">
-        <div class="group-box">
+
+  <h1>Home</h1>
+
+  <div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-md-8"><img src="http://unitysession.jamesfoster.org/images/Empty-calendar.gif" style="width: 100%;"></div>
+    <div class="col-md-2" style="border-right: 1px dotted #555;margin-top: -60px;"><h3><center>My Classes</center></h3>
+      <div class="group-box">
+      <% @groups.each do |group| %>
+      
           <b>Class: </b><%= group.title %><br />
           <b>Description: </b><%= group.description %>
           <div align="right">
@@ -14,10 +19,14 @@
             <%= link_to 'Add Project', add_groups_path(group) %>
             <%= link_to 'Edit', edit_group_path(group) %>
             <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </div>
-        </div>
+         </div>
       </div>
     <% end %>
-<br>
+  <%= link_to 'New Class', new_group_path %>
 
+<br />
+    
+<br>
+</div><!--closes row-->
+</div>
 
