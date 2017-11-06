@@ -13,7 +13,7 @@
 <h3>Projects</h3>
 <ul>
   <% for @project in @group.projects %>
-      <li><%= link_to @project.name, add_projects_path(@project) %>: <%= link_to @project.description, add_projects_path(@project) %></li>
+      <li><%= link_to @project.name, @project %>: <%= link_to @project.description, @project %></li>
   <% end %>
 </ul>
 <%= link_to 'Add Project', add_groups_path(@group) %>
