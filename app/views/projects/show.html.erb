@@ -16,6 +16,7 @@
       <li><%= @task.name %>: <%= @task.description %></li>
   <% end %>
 </ul>
+<%= link_to 'Add Task', add_projects_path(@project) %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
