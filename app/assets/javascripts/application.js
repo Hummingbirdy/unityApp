@@ -13,7 +13,6 @@
 
 //= require rails-ujs
 //= require turbolinks
-//= require font-awesome
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
