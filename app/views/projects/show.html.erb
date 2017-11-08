@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
 
       <p>
  
@@ -10,10 +10,10 @@
 
 <p>
  
-  <h3>Project: &nbsp;<%= @project.name %></h3>
+  <h2>Project: &nbsp;<%= @project.name %></h2>
 </p>
 
-<p style="font-size: 15px;">
+<p style="font-size: 18px;">
   <%= @project.description %>
 </p>
 <button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Edit', edit_project_path(@project) %></button>
@@ -25,12 +25,13 @@
 <h3>Tasks</h3>
 <ul>
   <% for @task in @project.tasks %>
-    <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
+    <div style="border-top: 1px solid #aaa; width: 50%; padding-top: 10px; padding-bottom: 20px;">
       <li><h4><%= @task.name %>:</h4> <font style="font-size: 15px;"><%= @task.description %></font></li>
+      <li><h5><a href="#">Assign Task</a></h5></li>
           
        </div>
   <% end %>
-   <li><h4><%= link_to '+ Add Task', add_projects_path(@project) %></h4></li>
+   <li><h4><%= link_to '+ Add or Remove Tasks', add_projects_path(@project) %></h4></li>
 </ul>
 
 
