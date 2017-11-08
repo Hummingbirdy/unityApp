@@ -1,22 +1,38 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+
+<p>
+  <h1><%= @group.title %></h1>
+</p>
+
+<p style="font-size: 18px;">
+<%= @group.description %>
+</p>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @group.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @group.description %>
-</p>
+<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Edit', edit_group_path(@group) %></button>
+<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Back', groups_path %></button>
+<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Delete', @group, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<br><br>
 
 <h3>Projects</h3>
+
 <ul>
   <% for @project in @group.projects %>
-      <li><%= link_to @project.name, @project %>: <%= link_to @project.description, @project %></li>
+  <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
+      <li><h4><%= link_to @project.name, @project %> <font style="font-size: 12px;">(<i>Due: </i>)</font></h4> <font style="font-size: 15px;"> <%= @project.description %></font></li>
+  </div>
   <% end %>
+  <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
+  <li><h4><%= link_to '+ Add Project', add_groups_path(@group) %></h4></li>
+</div>
 </ul>
-<%= link_to 'Add Project', add_groups_path(@group) %>
 
-<%= link_to 'Edit', edit_group_path(@group) %>
-<%= link_to 'Back', groups_path %>
+</div>
+
+<div class="col-md-8">
+	aaaa
+</div>
+</div>
+</div>
+
