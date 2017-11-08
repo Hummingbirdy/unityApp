@@ -9,11 +9,13 @@
 <p style="font-size: 18px;">
 <%= @group.description %>
 </p>
-<p id="notice"><%= notice %></p>
+
 <button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Edit', edit_group_path(@group) %></button>
-<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Back', groups_path %></button>
+<button onclick="goBack()" class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px; color: #367bb5;"><a>Back</a></button>
 <button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Delete', @group, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-<br><br>
+
+<br><br><p style="color: #cc0514;" id="notice"><%= notice %></p>
+
 
 <h3>Projects</h3>
 
@@ -21,6 +23,8 @@
   <% for @project in @group.projects %>
   <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
       <li><h4><%= link_to @project.name, @project %> <font style="font-size: 12px;">(<i>Due: </i>)</font></h4> <font style="font-size: 15px;"> <%= @project.description %></font></li>
+      <h5><%= link_to 'View', @project %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></h5>
   </div>
   <% end %>
   <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">

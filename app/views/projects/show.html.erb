@@ -1,25 +1,39 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+
+      <p>
+ 
+      </p>
+
+
 
 <p>
-  <strong>Name:</strong>
-  <%= @project.name %>
+ 
+  <h3>Project: &nbsp;<%= @project.name %></h3>
 </p>
 
-<p>
-  <strong>Description:</strong>
+<p style="font-size: 15px;">
   <%= @project.description %>
 </p>
+<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Edit', edit_project_path(@project) %></button>
+<button onclick="goBack()" class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px; color: #367bb5;"><a>Back</a></button>
+<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<br><br><p style="color: #cc0514;" id="notice"><%= notice %></p>
+
 
 <h3>Tasks</h3>
 <ul>
   <% for @task in @project.tasks %>
-      <li><%= @task.name %>: <%= @task.description %></li>
+    <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
+      <li><h4><%= @task.name %>:</h4> <font style="font-size: 15px;"><%= @task.description %></font></li>
+          
+       </div>
   <% end %>
+   <li><h4><%= link_to '+ Add Task', add_projects_path(@project) %></h4></li>
 </ul>
-<%= link_to 'Add Task', add_projects_path(@project) %>
-
-<%= link_to 'Add New Task', add_projects_path(@project) %>
 
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+</div>
+</div>
+</div>
