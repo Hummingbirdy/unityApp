@@ -21,7 +21,7 @@
 
 
       <div class="logo">
-      <a class="navbar-brand" href="http://unity.jamesfoster.org/index.php"><img src="http://unity.jamesfoster.org/images/logo-black.png" style="width: 150px; margin-top: -25px; position: relative; z-index: 1001;"></a></div>
+      <a class="navbar-brand" href="groups#index"><img src="http://unity.jamesfoster.org/images/logo-black.png" style="width: 150px; margin-top: -25px; position: relative; z-index: 1001;"></a></div>
 
 
 
@@ -33,9 +33,9 @@
         <li><a style="color: #222222; margin-top: -5px;" href="#"><span class="glyphicon glyphicon-user"></span> Welcome, xxxxxxxxxx!</a></li>
         <li><div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="border: 1px solid #555; background-color: #eee; border-radius: 5px; margin-right: 10px; width: 110px;"><a style="color: #222222" href="#"><span class="glyphicon glyphicon-folder-close"> New&nbsp;</span><span class="caret"></span></a></button>
            <ul class="dropdown-menu" style="background-color: #eee; margin-right: 10px; border: 1px solid #555; border-radius: 10px 0px 10px 10px; margin-top: -2px;">
-           	      <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Group</a></li>
-                  <li><a href="#"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Project</a></li>
-                  <li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;Task</a></li>
+           	      <li><a href="/groups/new"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;Class</a></li>
+                  <li><a href="/projects/new"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;Project</a></li>
+                  <li><a href="/tasks/new"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;Task</a></li>
            </ul>
              </div>
          </li>
@@ -65,9 +65,14 @@
 
 
 <div class="container-fluid">
+
   <body>
     <%= yield %>
   </body>
+
+<%# app/views/layouts/application.html.erb %>
+
+
 
   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div><!-- closes the container in which the body rests -->
