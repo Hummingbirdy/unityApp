@@ -25,18 +25,17 @@
 
 
 
-</div>
+    </div><!-- closes the navbar-header -->
     
     <div class="collapse navbar-collapse collapse-nav" id="myNavbar" style="margin-top: 60px;">
 
       <ul class="nav navbar-nav navbar-right" style="font-size: 17px;">
         <% if user_signed_in? %>
           <li><a style="color: #222222; margin-top: -5px;" href="#"><span class="glyphicon glyphicon-user"></span> Welcome, <%= current_user.name %></a></li>
-        <% end %>
-        <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a style="color: #222222" href="/groups#index"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home</a></button></li>
-        <li><div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="border: 1px solid #555; background-color: #eee; border-radius: 5px; margin-right: 10px; width: 110px;"><a style="color: #222222" href="#"><span class="glyphicon glyphicon-folder-close"> New&nbsp;</span><span class="caret"></span></a></button>
+          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a style="color: #222222" href="/pages/home"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home</a></button></li>
+          <li><div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="border: 1px solid #555; background-color: #eee; border-radius: 5px; margin-right: 10px; width: 110px;"><a style="color: #222222" href="#"><span class="glyphicon glyphicon-folder-close"> New&nbsp;</span><span class="caret"></span></a></button>
            <ul class="dropdown-menu" style="background-color: #eee; margin-right: 10px; border: 1px solid #555; border-radius: 10px 0px 10px 10px; margin-top: -2px;">
-           	      <li><div style="border-bottom: 1px dotted #aaa; text-decoration: none; padding-left: 65px; padding-top: 10px; padding-bottom: 10px; color: #444 !important;"><a href="/groups/new"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Class</a></div></li>
+                  <li><div style="border-bottom: 1px dotted #aaa; text-decoration: none; padding-left: 65px; padding-top: 10px; padding-bottom: 10px; color: #444 !important;"><a href="/groups/new"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Class</a></div></li>
                   <li><div style="border-bottom: 1px dotted #aaa; text-decoration: none; padding-left: 65px; padding-top: 10px; padding-bottom: 10px;"><a href="/projects/new"><i class="fa fa-file" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Project</a></div></li>
                   <li><div style="border-bottom: 0px dotted #aaa; text-decoration: none; padding-left: 65px; padding-top: 10px; padding-bottom: 10px;"><a href="/tasks/new"><i class="fa fa-list" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Task</a></div></li>
            </ul>
@@ -45,7 +44,7 @@
          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a style="color: #222222" href="/groups#index"><span class="glyphicon glyphicon-file"></span>&nbsp;&nbsp;Upload</a></button></li>
          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a style="color: #222222" href="/groups#index"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Chat</a></button></li>
         <!--<li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee;"><a style="color: #222222" href="http://unity.jamesfoster.org/index.php"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Logout</a></button></li>-->
-        <% if user_signed_in? %>
+       
           <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Profile', edit_user_registration_path %></button></li>
           <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee;"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></button></li>
         <% else %>
@@ -61,22 +60,17 @@
 	<div class="row">
 		
 
-		<div class="col-md-10" style="border: 0px; background-color: #fff;">
+		<div class="col-md" style="border: 0px; background-color: #fff;">
 
 
 <div class="container-fluid">
 
-  <div class="container">
-    <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
-        </div>
-    <% end %>
-  </div>
+  
 
   <body>
     <%= yield %>
   </body>
+
 
 <%# app/views/layouts/application.html.erb %>
 
@@ -85,7 +79,7 @@
   
 </div><!-- closes the container in which the body rests -->
 
-</div><!-- closes the col-md-11 (the main content column)-->
+</div><!-- closes the col-md (the main content column)-->
 
 </div><!-- closes the first row -->
 
