@@ -46,11 +46,11 @@
          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a style="color: #222222" href="/groups#index"><span class="glyphicon glyphicon-comment"></span>&nbsp;&nbsp;Chat</a></button></li>
         <!--<li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee;"><a style="color: #222222" href="http://unity.jamesfoster.org/index.php"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;Logout</a></button></li>-->
         <% if user_signed_in? %>
-          <%= link_to 'Profile', edit_user_registration_path %>
-            <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Profile', edit_user_registration_path %></button></li>
+          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee;"><%= link_to 'Log out', destroy_user_session_path, method: :delete %></button></li>
         <% else %>
-          <%= link_to 'Log in', new_user_session_path %>
-            <%= link_to 'Sign Up', new_user_registration_path %>
+          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Log in', new_user_session_path %></button></li>
+           <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"> <%= link_to 'Sign Up', new_user_registration_path %></button></li>
         <% end %>
       </ul>
     </div>
@@ -59,19 +59,7 @@
 
 <div class="container-fluid" style="margin-top: 0px">
 	<div class="row">
-		<div class="col-md-3" style="width: 16%;">
-
-		     <div class="container" style="margin-left: 40px; width: 150px; border: 2px solid #555; background-color: #ccc; background-image: url('http://unitysession.jamesfoster.org/images/grainy.png'); border-radius: 10px 10px 10px 10px; margin-top: 100px; padding: 10px; padding-left: 25px; position: fixed;">
-
-			     <a href="/groups#index"><img src="http://unitysession.jamesfoster.org/images/home.png" style="width: 100px; margin-bottom: 50px;"></a><br>
-			     
-			     <a><img src="http://unitysession.jamesfoster.org/images/projects.png" style="width: 100px; margin-bottom: 50px;"></a><br>
-			     <a><img src="http://unitysession.jamesfoster.org/images/chat.png" style="width: 100px;"></a>
-
-
-		     </div><!-- closes the container within col-md-2 -->
-
-		</div><!--closes the col-md-2 -->
+		
 
 		<div class="col-md-10" style="border: 0px; background-color: #fff;">
 
