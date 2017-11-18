@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root :to => 'groups#index'
+
+  root :to => 'pages#starthere'
+
+
+
 
   devise_for :users
   resources :tasks
