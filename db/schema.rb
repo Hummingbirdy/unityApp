@@ -12,18 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20171119030515) do
 
-  create_table "group_members", force: :cascade do |t|
-    t.text "name"
-    t.integer "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["group_id"], name: "index_group_members_on_group_id"
-  end
-
   create_table "groups", force: :cascade do |t|
     t.string "title"
-    t.text "description"
-    t.integer "hex"
+    t.string "description"
+    t.string "hex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
