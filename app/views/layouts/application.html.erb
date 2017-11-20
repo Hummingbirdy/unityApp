@@ -37,8 +37,8 @@
 
       <ul class="nav navbar-nav navbar-right" style="font-size: 17px;">
 
-          <li><a style="color: #222222; margin-top: -5px;" href="#"><span class="glyphicon glyphicon-user"></span> Welcome, <%= current_user.name %></a></li>
-          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a style="color: #222222" href="/pages/home"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home</a></button></li>
+          <li><a style="color: #222222; margin-top: -5px;" href="#"><span class="glyphicon glyphicon-user"></span> Welcome, <%= current_user.email %></a></li>
+          <li><button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a style="color: #222222" href="/"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Home</a></button></li>
           <li><div class="dropdown"><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="border: 1px solid #555; background-color: #eee; border-radius: 5px; margin-right: 10px; width: 110px;"><a style="color: #222222" href="#"><span class="glyphicon glyphicon-folder-close"> New&nbsp;</span><span class="caret"></span></a></button>
            <ul class="dropdown-menu" style="background-color: #eee; margin-right: 10px; border: 1px solid #555; border-radius: 10px 0px 10px 10px; margin-top: -2px;">
                   <li><div style="border-bottom: 1px dotted #aaa; text-decoration: none; padding-left: 65px; padding-top: 10px; padding-bottom: 10px; color: #444 !important;"><a href="/groups/new"><i class="fa fa-users" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Class</a></div></li>
@@ -59,18 +59,19 @@
   </div>
 </nav>
 
-<div class="container-fluid" style="margin-top: 0px">
+<div class="container" style="margin-top: 0px">
 	<div class="row">
 		
 
 		<div class="col-md" style="border: 0px; background-color: #fff;">
 
 
-<div class="container-fluid">
+<div class="container">
 
   
 
   <body>
+  <br />
     <%= yield %>
   </body>
 
@@ -131,8 +132,9 @@
 </nav>
 
   <body>
-
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 <% end %>
 

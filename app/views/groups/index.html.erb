@@ -1,38 +1,59 @@
-
+<br />
 <h1>Home</h1>
 
-  <div class="container-fluid">
+<% blank = true %>
+<% @groups.each do |group| %>
+    <% if group.user == current_user %>
+        <% blank = false %>
+    <% end %>
+<% end %>
+
+<% if blank == true %>
+    <div class="container-fluid">
+      <div class="row">
+      <h1 align="center">Welcome to Unity!</h1>
+        <center><%= link_to 'Click here to start!', new_group_path, class: 'btn btn-primary' %> </center>
+      </div>
+    </div>
+<% else %>
+
+  <div class="container">
 
   <div class="row">
 
-    <div class="col-md-8"><img src="http://unitysession.jamesfoster.org/images/Empty-calendar.gif" style="width: 100%;"></div>
-    <div class="col-md-2" style="border-right: 1px dotted #555;margin-top: -60px;"><h3><center>My Classes</center></h3>
+    <div class="col-md-6"><img src="http://unitysession.jamesfoster.org/images/Empty-calendar.gif" style="width: 100%;"></div>
+    <div class="col-md-3" style="border-right: 1px dotted #555;margin-top: -60px;"><h3><center>My Groups</center></h3>
       <% @groups.each do |group| %>
-            <div class="group-box <%= group.id %> color-<%= (1..10).to_a.sample %>">
+          <% if group.user == current_user %>
+            <div class="group-box <%= group.id %>" style="background-color: #<%= group.hex%>">
+              <h4><b><%= link_to group.title, group %></b></h4>
+              <%= group.description %>
+         
+              <p style="line-height: 2;">
+              <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+              <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
+            </div>
+          <% end %>
+      <% end %>
 
-          <h4><b><%= link_to group.title, group %></b></h4>
-          <%= group.description %>
-         
-           <p style="line-height: 2;">
-            <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-            <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
-         
-       </div>
+    <br /><h4><%= link_to '+ New Group', new_group_path %></h4>
+    <p style="color: #cc0514;" id="notice"><%= notice %></p>
+  </div>
+  <div class="col-md-3" style="margin-top: -60px;">
+    <h3><center>Upcoming Due Dates</center></h3>
+    <% @groups.each do |group| %>
+        <% if group.user == current_user %>
+          <% for project in group.projects %>
+                <% if project.due_date <=> (Date.today + 3) %>
+                  <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
+                    <h3><%= project.name %> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> </i>)</font></h3>
+                    <font style="font-size: 15px;"> <%= project.description %></font></li> <br />
+                  </div>
+                <% end %>
+          <% end %>
+        <% end %>
     <% end %>
-
-  <br><h4><%= link_to '+ New Class', new_group_path %></h4>
-
-  <p style="color: #cc0514;" id="notice"><%= notice %></p>
-
-
-
-<br />
-    
-<br>
-</div>
-<div class="col-md-2" style="margin-top: -60px;">
-  <h3><center>Upcoming Tasks</center></h3>
-</div>
+  </div>
 </div><!--closes row-->
 </div>
-
+<% end %>

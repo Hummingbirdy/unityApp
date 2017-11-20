@@ -1,42 +1,51 @@
+<br />
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-4">
+      <p>
+        <h1><%= @group.title %></h1>
+      </p>
+      <p style="font-size: 18px;">
+        <%= @group.description %>
+      </p>
 
-<p>
-  <h1><%= @group.title %></h1>
-</p>
-
-<p style="font-size: 18px;">
-<%= @group.description %>
-</p>
-
-<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Edit', edit_group_path(@group) %></button>
-<button onclick="goBack()" class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px; color: #367bb5;"><a>Back</a></button>
-<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%= link_to 'Delete', @group, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-
+      <!--<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%#= link_to 'Edit', edit_group_path(@group) %></button>-->
+      <!--<button onclick="goBack()" class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px; color: #367bb5;"><a>Back</a></button>-->
+      <!--<button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><%#= link_to 'Delete', @group, method: :delete, data: { confirm: 'Are you sure?' } %></button>-->
+    </div>
 <br><br><p style="color: #cc0514;" id="notice"><%= notice %></p>
 
+    <div class="col-md-8">
+      <h2>Projects</h2>
+      <div align="right">
+        <%= link_to '+ Add Projects', add_groups_path(@group) %>
+      </div>
+      <% for project in @group.projects %>
+      <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
+        <h3><%= project.name %> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> </i>)</font></h3>
+        <font style="font-size: 15px;"> <%= project.description %></font></li> <br />
+        <h4>Tasks</h4>
+        <ul>
+        <% for task in project.tasks %>
+            <li><div><b><%= task.name %></b></div></li>
+            <div><%= task.description %></div>
+              <% if task.due_date %>
+                <div>Due on <%= task.due_date %></div>
+              <% end %>
+              <% if task.hours %>
+                <div>Estimated <%= task.hours %> hours to go</div>
+              <% end %>
+              <br />
+        <% end %>
+        </ul>
+        <div align="right"><%= link_to '+ Add Tasks', add_projects_path(project) %></div>
+      </div>
+      <% end %>
+      <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
 
-<h3>Projects</h3>
-
-<ul>
-  <% for @project in @group.projects %>
-  <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
-      <li><h4><%= link_to @project.name, @project %> <font style="font-size: 12px;">(<i>Due: </i>)</font></h4> <font style="font-size: 15px;"> <%= @project.description %></font></li>
-      <h5><%= link_to 'View', @project %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-      <%= link_to 'Delete', @project, method: :delete, data: { confirm: 'Are you sure?' } %></h5>
+        <%#= render 'a', group: @group %>
+      </div>
+    </div>
   </div>
-  <% end %>
-  <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
-  <li><h4><%= link_to '+ Add Project', add_groups_path(@group) %></h4></li>
-</div>
-</ul>
-
-</div>
-
-<div class="col-md-8">
-	aaaa
-</div>
-</div>
 </div>
 
