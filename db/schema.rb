@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20171118215832) do
   create_table "groups", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "hex"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,7 +30,6 @@ ActiveRecord::Schema.define(version: 20171118215832) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "due_date"
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -41,8 +39,6 @@ ActiveRecord::Schema.define(version: 20171118215832) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "due_date"
-    t.integer "hours"
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
