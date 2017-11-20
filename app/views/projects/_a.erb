@@ -1,48 +1,47 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-9">
 
-
-
-
-<p>
- 
-  <h2>Project: &nbsp;<%= @project.name %></h2>
-</p>
-
-    <p style="font-size: 15px;">
-      
-      <%= @project.description %>
-    </p>
-
-    <%= form_with(model: @project, local: true) do |form| %>
-
+<%= form_with(model: @project, local: true) do |form| %>
+    <h1><%= @project.name %></h1>
     <div class="form-group">
-      <h3>Add Tasks</h3>
-      
-        <%= form.nested_fields_for :tasks do |task| %>
-        <div style="margin-left: 40px; border-top: 1px dotted #aaa; width: 100%; padding-top: 10px; padding-bottom: 10px;">
-          <b>Task Name: &nbsp;</b>
-          <%= task.text_field :name, class: 'field' %><br /><br>
-          <b>Description: &nbsp;</b>
-          <%= task.text_field :description, class: 'field2' %>
-          <h4><%= task.remove_nested_fields_link %></h4>
-           </div>
-         
-      <% end %>
-     
-      <h4><%= form.add_nested_fields_link :tasks, '+ Create New Task' %></h4></div>
-    
-<br><br>
-    <div class="actions">
 
-      <button class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px;"><a><%= form.submit 'Update', class: "submit1" %></a></button>
-      <button onclick="goBack()" class="btn btn-primary" style="border: 1px solid #555; border-radius: 5px; width: 110px; background-color: #eee; margin-right: 10px; color: #367bb5;"><a>Back</a></button>
-    </div>
-
+      <%= form.nested_fields_for :tasks do |task| %>
+          <div class="form-group row">
+            <div align="right" class="col-md-2">
+              <b>Task Name: </b>
+            </div>
+            <div class="col-md-6">
+              <%= task.text_field :name, placeholder: 'e.g., Create Outline', class: 'input' %>
+              <%= task.remove_nested_fields_link %> <br />
+            </div>
           </div>
+          <div class="form-group row">
+            <div align="right" class="col-md-2">
+              <b>Description: </b>
+            </div>
+            <div class="col-md-6">
+              <%= task.text_field :description, placeholder: 'optional', class: 'input' %> <br />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div align="right" class="col-md-2">
+              <b>Due Date: </b>
+            </div>
+            <div class="col-md-6">
+              <%= task.datetime_field :due_date, class: 'input' %>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div align="right" class="col-md-2">
+              <b>Hours Left:  </b>
+            </div>
+            <div class="col-md-6">
+              <%= task.text_field :hours, class: 'input' %>
+            </div>
+          </div>
+          <br />
+      <% end %>
+      <%= form.add_nested_fields_link :tasks, '+ Add Task' %>
+    </div>
+    <div align="right" class="actions">
+      <%= form.submit 'Save' %>
+    </div>
 <% end %>
-
-</div>
-</div>
-</div>

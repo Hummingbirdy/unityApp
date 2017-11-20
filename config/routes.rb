@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
 
-  root :to => 'pages#starthere'
+  root :to => 'groups#index'
 
 
-
+  get '/projects/:id', to: redirect('/groups')
 
   devise_for :users
   resources :tasks
@@ -15,5 +15,9 @@ Rails.application.routes.draw do
   get '/projects/add/:id', :to => 'projects#add', :as => 'add_projects'
 
   get '/pages/:page' => 'pages#show'
+
+
+
+
 
 end

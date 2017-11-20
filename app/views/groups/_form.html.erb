@@ -1,7 +1,32 @@
+<% hex_id = rand(1..8) %>
+<% hex_code = '000000' %>
+
+<% if hex_id == 1 %>
+    <% hex_code = 'e6e6fa' %>
+<% elsif hex_id == 2 %>
+    <% hex_code = 'fffacd' %>
+<% elsif hex_id ==  3 %>
+    <% hex_code = 'afeeee' %>
+<% elsif hex_id ==  4 %>
+    <% hex_code = '7fffd4' %>
+<% elsif hex_id ==  5 %>
+    <% hex_code = 'f0e68c' %>
+<% elsif hex_id ==  6 %>
+    <% hex_code = 'eedd82' %>
+<% elsif hex_id ==  7 %>
+    <% hex_code = 'e9967a' %>
+<% elsif hex_id ==  8 %>
+    <% hex_code = 'ee82ee' %>
+<% else %>
+    <% hex_code = '999999' %>
+<% end %>
+
+
+
 <%= form_with(model: group, local: true) do |form| %>
   <% if group.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <h2><%= pluralize(group.errors.count, 'error') %> prohibited this group from being saved:</h2>
 
       <ul>
       <% group.errors.full_messages.each do |message| %>
@@ -10,18 +35,30 @@
       </ul>
     </div>
   <% end %>
+  <div align="center" class="col-md-8">
+    <div class="form-group row">
+      <div align="right" class="col-md-3">
+        <%= form.label :title %>:
+      </div>
+      <div class="col-md-5">
+        <%= form.text_field :title, id: :group_title, placeholder: 'e.g., TECM 4400', class: 'input' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :group_title %>
+    <div class="form-group row">
+      <div align="right" class="col-md-3">
+        <%= form.label :description %>:
+      </div>
+      <div class="col-md-5">
+        <%= form.text_area :description, id: :group_description, placeholder: 'optional', class: 'input' %>
+      </div>
+    </div>
+    <%= form.hidden_field :hex, :value => hex_code %>
+    <div align="right" class="actions">
+      <%= form.submit 'Save' %>
+      <%= link_to 'Back', groups_path %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :group_description %>
-  </div>
 
-  <div class="actions">
-    <%= form.submit 'Add' %>
-  </div>
 <% end %>
