@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root :to => 'groups#index'
 
 
-  #get '/projects/:id', to: redirect('/groups')
+  get '/projects/:id', to: redirect('/groups')
 
   devise_for :users
   resources :tasks
