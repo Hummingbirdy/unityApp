@@ -1,14 +1,28 @@
 <br />
-<h1>Home</h1>
+<br/>
+<br/>
 
 <% blank = true %>
+<% if user_signed_in? %>
 <% @groups.each do |group| %>
     <% if group.user == current_user %>
         <% blank = false %>
     <% end %>
+      <% for member in group.teammates %>
+          <% if  member.email == current_user.email %>
+                <% blank = false %>
+            <% end %>
+    <% end %>
 <% end %>
+    <% end %>
 
-<% if blank == true %>
+<% if !user_signed_in? %>
+<div class="container-fluid">
+  <div align="center">
+    <img src="http://i.imgur.com/2jAvKkl.jpg" style="width: 85%" >
+  </div>
+</div>
+<% elsif blank == true %>
     <div class="container-fluid">
       <div class="row">
       <h1 align="center">Welcome to Unity!</h1>
@@ -18,6 +32,7 @@
 <% else %>
 
   <div class="container">
+    <h1>Home</h1>
 
   <div class="row">
 
@@ -33,6 +48,19 @@
               <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
               <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
             </div>
+          <% else %>
+              <% for member in group.teammates %>
+                  <% if member.email == current_user.email %>
+                      <div class="group-box <%= group.id %>" style="background-color: #<%= group.hex%>">
+                        <h4><b><%= link_to group.title, group %></b></h4>
+                        <%= group.description %>
+
+                        <p style="line-height: 2;">
+                        <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                          <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
+                      </div>
+                  <% end %>
+              <% end %>
           <% end %>
       <% end %>
 
@@ -40,15 +68,38 @@
     <p style="color: #cc0514;" id="notice"><%= notice %></p>
   </div>
   <div class="col-md-3" style="margin-top: -60px;">
-    <h3><center>Upcoming Due Dates</center></h3>
+    <h2><center>Upcoming Due Dates</center></h2>
+    <h3>Projects</h3>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
     <% @groups.each do |group| %>
-        <% if group.user == current_user %>
+        <% show = false %>
+        <% for member in group.teammates %>
+            <% if  member.email == current_user.email %>
+                <% show = true %>
+            <% end %>
+        <% end %>
+        <% if group.user == current_user || show == true %>
           <% for project in group.projects %>
-                <% if project.due_date <=> (Date.today + 3) %>
-                  <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
-                    <h3><%= project.name %> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> </i>)</font></h3>
-                    <font style="font-size: 15px;"> <%= project.description %></font></li> <br />
-                  </div>
+                <% if project.due_date != nil %>
+                    <div>
+                      <h3><%= project.name %> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> </i>)</font></h3>
+                      <font style="font-size: 15px;"> <%= project.description %></font></li> <br />
+                    </div>
+                <% end %>
+          <% end %>
+        <% end %>
+        <% show = false %>
+    <% end %>
+    <h3>Tasks</h3>
+    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    <% @groups.each do |group| %>
+      <% for project in group.projects %>
+          <% for task in project.tasks %>
+            <% if task.member == current_user.email %>
+                    <div0>
+                      <h3><%= task.name %> <font style="font-size: 12px;">(<i>Due: <%= task.due_date %> </i>)</font></h3>
+                      <font style="font-size: 15px;"> <%= task.description %></font></li> <br />
+                    </div>
                 <% end %>
           <% end %>
         <% end %>

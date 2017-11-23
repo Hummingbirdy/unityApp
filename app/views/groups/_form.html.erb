@@ -38,10 +38,10 @@
   <div align="center" class="col-md-8">
     <div class="form-group row">
       <div align="right" class="col-md-3">
-        <%= form.label :title %>:
+        <lable><b>Class Name</b></lable>
       </div>
       <div class="col-md-5">
-        <%= form.text_field :title, id: :group_title, placeholder: 'e.g., TECM 4400', class: 'input' %>
+        <%= form.text_field :title, id: :group_title, placeholder: 'e.g., MATH 1500', class: 'input' %>
       </div>
     </div>
 
@@ -52,6 +52,18 @@
       <div class="col-md-5">
         <%= form.text_area :description, id: :group_description, placeholder: 'optional', class: 'input' %>
       </div>
+    </div>
+    <div class="form-group row">
+      <%= form.nested_fields_for :teammates do |member| %>
+          <div align="right" class="col-md-3">
+           <label>Group Member: </label>
+          </div>
+          <div class="col-md-6">
+            <%= member.text_field :email, placeholder: 'email', class: 'input' %>
+            <%= member.remove_nested_fields_link %> <br />
+          </div>
+      <%end %>
+      <%= form.add_nested_fields_link :teammates, '+ Add a Group Member' %>
     </div>
     <%= form.hidden_field :hex, :value => hex_code %>
     <div align="right" class="actions">
