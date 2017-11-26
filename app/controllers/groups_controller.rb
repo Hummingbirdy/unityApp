@@ -6,6 +6,9 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
+   # @projects = Project.all
+    #@projects_by_date = @projects.group_by(&:due_date)
+    #@date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   # GET /groups/1

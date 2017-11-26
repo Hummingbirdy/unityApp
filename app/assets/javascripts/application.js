@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/widgets/datepicker
 //= require bootstrap-sprockets
 //= require nested_form_fields
 //= require_tree .
@@ -22,3 +23,8 @@
 function goBack() {
     window.history.back()
 }
+
+$(document).ready(function(){
+    $("#date-picker").datepicker();
+        // dateFormat: 'yy-mm-dd'
+})

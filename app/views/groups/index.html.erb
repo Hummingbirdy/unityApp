@@ -21,7 +21,26 @@
 
   <div class="row">
 
-    <div class="col-md-6"><img src="http://unitysession.jamesfoster.org/images/Empty-calendar.gif" style="width: 100%;"></div>
+    <div class="col-md-6">
+      <!--<img src="http://unitysession.jamesfoster.org/images/Empty-calendar.gif" style="width: 100%;">-->
+      <!--<div id="articles">-->
+        <!--<h2 id="month">-->
+          <!--<%#= link_to '<', date: @date.prev_month %>-->
+          <!--<&= @date.strftime("%B %Y") %>-->
+          <!--<%#= link_to '>', date: @date.next_month %>-->
+        <!--</h2>-->
+        <!--<%# group @date do |date| %>-->
+          <!--<%#= date.day %>-->
+            <!--<%# if @projects_by_date[date] %>-->
+            <!--<ul>-->
+              <!--<%# @projects_by_date[date].each do |project| %>-->
+                <!--<li><%#= link_to project.name, group_path(project.group_id) %></li>-->
+                <!--<%# end %>-->
+            <!--</ul>-->
+            <!--<%# end %>-->
+        <!--<%# end %>-->
+      <!--</div>-->
+    </div>
     <div class="col-md-3" style="border-right: 1px dotted #555;margin-top: -60px;"><h3><center>My Groups</center></h3>
       <% @groups.each do |group| %>
           <% if group.user == current_user %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :calendars
   root :to => 'groups#index'
 
 
