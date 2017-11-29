@@ -25,8 +25,8 @@
               <b>Due Date: </b>
             </div>
             <div class="col-md-6">
-              <%= project.datetime_field :due_date, class: 'input', id: 'date-picker' %>
-
+              <%= project.text_field :due_date, class: 'date-picker date' %>
+              <%= project.time_field :due_time, class: 'time' %>
             </div>
           </div>
           <br />

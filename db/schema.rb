@@ -30,7 +30,8 @@ ActiveRecord::Schema.define(version: 20171126022712) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "due_date"
+    t.date "due_date"
+    t.time "due_time"
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,7 +41,8 @@ ActiveRecord::Schema.define(version: 20171126022712) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "due_date"
+    t.date "due_date"
+    t.time "due_time"
     t.integer "hours"
     t.string "member"
     t.integer "project_id"

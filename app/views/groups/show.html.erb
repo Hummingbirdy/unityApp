@@ -1,5 +1,5 @@
 <br />
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
 		<div class="col-md-4">
       <p>
@@ -14,7 +14,7 @@
       <br />
       <h2>Group Members</h2>
       <ul>
-        <li><%= current_user.email %></li>
+        <li><%= @group.user.email %></li>
         <% for member in @group.teammates %>
             <li><%= member.email %></li>
         <% end %>
@@ -33,7 +33,7 @@
       </div>
       <% for project in @group.projects %>
       <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
-        <h3><b><%= project.name %></b> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> </i>)</font></h3>
+        <h3><b><%= project.name %></b> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> <% if project.due_time %><%= project.due_time.strftime(" at %I:%M %p") %> <% end %></i>)</font></h3>
         <font style="font-size: 15px;"><%=project.description %></font></li> <br />
         <h4>Tasks</h4>
         <ul>
@@ -41,7 +41,7 @@
             <li><div><b><%= task.name %></b></div></li>
             <div><%= task.description %></div>
               <% if task.due_date %>
-                <div>Due on <%= task.due_date %></div>
+                <div>Due on <%= task.due_date %> <% if task.due_time %><%= task.due_time.strftime(" at %I:%M %p") %><% end %></div>
               <% end %>
               <% if task.hours %>
                 <div>Estimated <%= task.hours %> hours to go</div>

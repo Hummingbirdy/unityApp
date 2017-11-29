@@ -6,9 +6,11 @@ class GroupsController < ApplicationController
   # GET /groups.json
   def index
     @groups = Group.all
-   # @projects = Project.all
-    #@projects_by_date = @projects.group_by(&:due_date)
-    #@date = params[:date] ? Date.parse(params[:date]) : Date.today
+    @projects = Project.all
+    @projects_by_date = @projects.group_by(&:due_date)
+    @tasks = Task.all
+    @tasks_by_date = @tasks.group_by(&:due_date)
+    @date = params[:date] ? Date.parse(params[:date]) : Date.today
   end
 
   # GET /groups/1
@@ -79,7 +81,7 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.require(:group).permit(:title, :description, :hex,
-                                    projects_attributes:[:id, :name, :description, :due_date, :_destroy],
+                                    projects_attributes:[:id, :name, :description, :due_date, :due_time, :_destroy],
                                     teammates_attributes:[:id, :email, :_destroy])
     end
 end

@@ -24,7 +24,12 @@ function goBack() {
     window.history.back()
 }
 
-$(document).ready(function(){
-    $("#date-picker").datepicker();
-        // dateFormat: 'yy-mm-dd'
-})
+ // $(document).ready(function(){
+ //     $('body').on('focus', ".date-picker", function(){
+ //         $(this).datepicker(
+ //             {
+ //                 dateFormat: 'yy-mm-dd'
+ //             }
+ //         );
+ //     });
+ // })

@@ -31,32 +31,55 @@
     </div>
 <% else %>
 
-  <div class="container">
-    <h1>Home</h1>
+  <div class="container-fluid">
 
   <div class="row">
 
     <div class="col-md-6">
-      <!--<img src="http://unitysession.jamesfoster.org/images/Empty-calendar.gif" style="width: 100%;">-->
-      <!--<div id="articles">-->
-        <!--<h2 id="month">-->
-          <!--<%#= link_to '<', date: @date.prev_month %>-->
-          <!--<&= @date.strftime("%B %Y") %>-->
-          <!--<%#= link_to '>', date: @date.next_month %>-->
-        <!--</h2>-->
-        <!--<%# group @date do |date| %>-->
-          <!--<%#= date.day %>-->
-            <!--<%# if @projects_by_date[date] %>-->
-            <!--<ul>-->
-              <!--<%# @projects_by_date[date].each do |project| %>-->
-                <!--<li><%#= link_to project.name, group_path(project.group_id) %></li>-->
-                <!--<%# end %>-->
-            <!--</ul>-->
-            <!--<%# end %>-->
-        <!--<%# end %>-->
-      <!--</div>-->
+      <div id="articles">
+        <h2 id="month">
+          <%= link_to '<', date: @date.prev_month %>
+          <%= @date.strftime('%B %Y') %>
+          <%= link_to '>', date: @date.next_month %>
+        </h2>
+
+        <%= calendar @date do |date| %>
+            <%= date.day %>
+            <% if @projects_by_date[date] %>
+                <ul>
+                  <% @projects_by_date[date].each do |project| %>
+                      <% show = false %>
+                      <% for member in project.group.teammates %>
+                          <% if  member.email == current_user.email %>
+                              <% show = true %>
+                          <% end %>
+                      <% end %>
+                      <% if project.group.user == current_user || show == true %>
+                          <div style="background-color: #<%= project.group.hex%>">
+                            <li class="calendar-link"><%= link_to project.name, group_path(project.group_id) %></li>
+                          </div>
+                      <% end %>
+                  <% end %>
+                </ul>
+            <% end %>
+            <% if @tasks_by_date[date] %>
+              <ul>
+                <% @tasks_by_date[date].each do |task| %>
+                    <% if task.member == current_user.email %>
+                        <div style="background-color: #<%= task.project.group.hex%>">
+                          <li class="calendar-link"><%= link_to task.name, group_path(task.project.group_id) %></li>
+                        </div>
+                    <% end %>
+                <% end %>
+              </ul>
+            <% end %>
+        <% end %>
+      </div>
+
     </div>
-    <div class="col-md-3" style="border-right: 1px dotted #555;margin-top: -60px;"><h3><center>My Groups</center></h3>
+    <div class="col-md-3" style="border-right: 1px dotted #555;margin-top: -60px;">
+      <h2><center>My Groups</center></h2>
+      <br/>
       <% @groups.each do |group| %>
           <% if group.user == current_user %>
             <div class="group-box <%= group.id %>" style="background-color: #<%= group.hex%>">
@@ -88,8 +111,8 @@
   </div>
   <div class="col-md-3" style="margin-top: -60px;">
     <h2><center>Upcoming Due Dates</center></h2>
-    <h3>Projects</h3>
     <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    <h3>Projects:</h3>
     <% @groups.each do |group| %>
         <% show = false %>
         <% for member in group.teammates %>
@@ -99,26 +122,33 @@
         <% end %>
         <% if group.user == current_user || show == true %>
           <% for project in group.projects %>
-                <% if project.due_date != nil %>
-                    <div>
-                      <h3><%= project.name %> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> </i>)</font></h3>
-                      <font style="font-size: 15px;"> <%= project.description %></font></li> <br />
-                    </div>
+                <% if project.due_date.present? %>
+                  <% if project.due_date > DateTime.now %>
+                      <div>
+                        <p><b><%= project.name %></b> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> </i>)</font></p>
+                        <font style="font-size: 15px;"> <%= project.description %></font></li> <br />
+                      </div>
+                      <br/>
+                  <% end %>
                 <% end %>
           <% end %>
         <% end %>
         <% show = false %>
     <% end %>
-    <h3>Tasks</h3>
-    <hr style="height:1px;border:none;color:#333;background-color:#333;" />
+    <h3>Tasks:</h3>
     <% @groups.each do |group| %>
       <% for project in group.projects %>
           <% for task in project.tasks %>
             <% if task.member == current_user.email %>
-                    <div0>
-                      <h3><%= task.name %> <font style="font-size: 12px;">(<i>Due: <%= task.due_date %> </i>)</font></h3>
-                      <font style="font-size: 15px;"> <%= task.description %></font></li> <br />
-                    </div>
+                    <% if task.due_date.present? %>
+                        <% if task.due_date > DateTime.now %>
+                          <div>
+                            <p><b><%= task.name %></b> <font style="font-size: 12px;">(<i>Due: <%= task.due_date %> </i>)</font></p>
+                            <font style="font-size: 15px;"> <%= task.description %></font></li> <br />
+                          </div>
+                          <br/>
+                        <% end %>
+                    <% end %>
                 <% end %>
           <% end %>
         <% end %>

@@ -11,7 +11,7 @@
     <%= date.day %>
       <% if @projects_by_date[date] %>
         <ul>
-          <% @projects[date].each do |project| %>
+          <% @projects_by_date[date].each do |project| %>
             <li><%= link_to project.name, group_path(project.group_id) %></li>
           <% end %>
         </ul>
