@@ -52,10 +52,10 @@
           <font style="font-size: 15px;"><%=project.description %></font></li>
                   <div class="underline"></div>
 
-          <h4>Tasks</h4>
+          <h4 class="task">Tasks</h4>
+          <div class="underline-left"></div>
           <div class="transitions-enabled row" id="tasks">
             <% for task in project.tasks %>
-                <div class="col-md-4">
                   <div class="task-tile">
                     <div><b><%= task.name %></b></div>
                     <div><%= task.description %></div>
@@ -68,7 +68,6 @@
                     <div> Assigned To: <%= task.member %> </div>
                     <br />
                   </div>
-                </div>
                 <br>
             <% end %>
           </div>

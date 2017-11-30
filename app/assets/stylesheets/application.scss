@@ -198,10 +198,10 @@ ul {
   height: 520px;
 }
 .task-tile {
-  background: #35605a;
   padding: 15px;
   border-radius: 10px;
   color: white;
+  background: #DFAA48;
 }
 
 .document-tile {
@@ -237,6 +237,12 @@ ul {
   text-transform: uppercase;
   font-family: 'Fira Sans', sans-serif;
 }
+h4.task {
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Fira Sans', sans-serif;
+  margin-left: 20px;
+}
 .document-tile a {
   color: white !important;
 }
@@ -246,6 +252,12 @@ ul {
   border-bottom: 4px solid white;
   margin: 0 auto;
   margin-bottom: 20px;
+}
+.underline-left {
+  width: 40px;
+  border-bottom: 4px solid white;
+  margin-bottom: 20px;
+  margin-left: 20px;
 }
 .nav-tile {
   background: #6B818C;
