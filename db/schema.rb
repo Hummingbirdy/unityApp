@@ -12,10 +12,17 @@
 
 ActiveRecord::Schema.define(version: 20171119030515) do
 
+  create_table "group_members", force: :cascade do |t|
+    t.text "name"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_members_on_group_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "title"
-    t.string "description"
-    t.string "hex"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
@@ -25,7 +32,6 @@ ActiveRecord::Schema.define(version: 20171119030515) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "due_date"
     t.integer "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,8 +41,6 @@ ActiveRecord::Schema.define(version: 20171119030515) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.datetime "due_date"
-    t.integer "hours"
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
