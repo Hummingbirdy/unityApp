@@ -80,37 +80,39 @@
         <div class="col-md-4" style="margin-top: -60px;">
           <h2><center>My Groups</center></h2>
           <br/>
-          <% @groups.each do |group| %>
-              <% if group.user == current_user %>
-                  <a href="/groups/<%= group.id %>">
-                    <div class="group-box <%= group.id %>" style="background-color: #<%= group.hex%>">
-                      <h4><b><%= group.title %></b></h4>
-                      <div class="black"><%= group.description %></div>
-                      <p style="line-height: 2;">
-                      <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-                      <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
-                    </div>
-                  </a>
-              <% else %>
-                  <% for member in group.teammates %>
-                      <% if member.email == current_user.email %>
-                          <a href="/groups/<%= group.id %>">
-                            <div class="group-box <%= group.id %>" style="background-color: #<%= group.hex%>">
-                              <h4><b><%= link_to group.title, group %></b></h4>
-                              <%= group.description %>
+          <div id="MyGroups">
+            <% @groups.each do |group| %>
+                <% if group.user == current_user %>
+                    <a href="/groups/<%= group.id %>">
+                      <div class="group-box <%= group.id %>" style="background-color: #<%= group.hex%>">
+                        <h4><b><%= group.title %></b></h4>
+                        <div class="black"><%= group.description %></div>
+                        <p style="line-height: 2;">
+                        <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
+                      </div>
+                    </a>
+                <% else %>
+                    <% for member in group.teammates %>
+                        <% if member.email == current_user.email %>
+                            <a href="/groups/<%= group.id %>">
+                              <div class="group-box <%= group.id %>" style="background-color: #<%= group.hex%>">
+                                <h4><b><%= link_to group.title, group %></b></h4>
+                                <%= group.description %>
 
-                              <p style="line-height: 2;">
-                              <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
-                                <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
-                            </div>
-                          </a>
-                      <% end %>
-                  <% end %>
-              <% end %>
-          <% end %>
-
-        <br /><h4><%= link_to '+ New Group', new_group_path %></h4>
-        <p style="color: #cc0514;" id="notice"><%= notice %></p>
+                                <p style="line-height: 2;">
+                                <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                                  <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
+                              </div>
+                            </a>
+                        <% end %>
+                    <% end %>
+                <% end %>
+                <br/>
+            <% end %>
+          </div>
+          <h4 class="pull-right"><%= link_to '+ New Group', new_group_path %></h4>
+        <!--<p style="color: #cc0514;" id="notice"><%= notice %></p>-->
       </div>
 
     </div><!--closes row-->
