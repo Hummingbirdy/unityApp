@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<div id="articles">
+  <h2 id="month">
+    <%= link_to '<', date: @date.prev_month %>
+    <%= @date.strftime('%B %Y') %>
+    <%= link_to '>', date: @date.next_month %>
+  </h2>
+
+  <%= calendar @date do |date| %>
+    <%= date.day %>
+      <% if @projects_by_date[date] %>
+        <ul>
+          <% @projects_by_date[date].each do |project| %>
+            <li><%= link_to project.name, group_path(project.group_id) %></li>
+          <% end %>
+        </ul>
+      <% end %>
+  <% end %>
+</div>
+
+
+<h1>Projects</h1>
+</div>
+<br />
+<% @projects.each do |project| %>
+
+    <div class="project-box">
+      <b>Project: </b><%= project.name %>
+      <b>Description: </b><%= project.description %>
+      <b>Due Date: </b><%=project.due_date %>
+
+      <%= link_to 'Show', project %>
+      <%= link_to 'Create New Task', add_projects_path(project) %>
+      <%= link_to 'Edit', edit_project_path(project) %>
+      <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    </div>
+
+<% end %>
+<br>

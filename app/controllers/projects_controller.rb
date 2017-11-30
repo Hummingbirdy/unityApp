@@ -23,6 +23,12 @@ class ProjectsController < ApplicationController
 
   #GET /projects/1/add
   def add
+    #@project = Project.find(params[:id])
+    #respond_to do |format|
+      #if @project.update(project_params)
+     #   format.html { redirect_to group_path(@project.group_id), notice: 'Task was successfully created.' }
+     # end
+    #end
   end
 
   # POST /projects
@@ -46,7 +52,7 @@ class ProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.html { redirect_to group_path(@project.group_id), notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -73,6 +79,8 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :group_id,  tasks_attributes:[:id, :name, :description, :due_date, :hours, :_destroy], group:[:id, :title])
+      params.require(:project).permit(:name, :description, :group_id,
+                                      tasks_attributes:[:id, :name, :description, :due_date, :due_time, :hours, :member, :_destroy],
+                                      group:[:id, :title])
     end
 end

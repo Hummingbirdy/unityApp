@@ -17,7 +17,7 @@
               <b>Description: </b>
             </div>
             <div class="col-md-6">
-              <%= project.text_field :description, placeholder: 'optional', class: 'input' %> <br />
+              <%= project.text_area :description, placeholder: 'optional', class: 'input' %> <br />
             </div>
           </div>
           <div class="form-group row">
@@ -25,8 +25,8 @@
               <b>Due Date: </b>
             </div>
             <div class="col-md-6">
-              <%= project.datetime_field :due_date, class: 'input' %>
-
+              <%= project.text_field :due_date, class: 'date-picker date' %>
+              <%= project.time_field :due_time, class: 'time' %>
             </div>
           </div>
           <br />

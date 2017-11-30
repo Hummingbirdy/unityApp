@@ -15,6 +15,8 @@
 //= require turbolinks
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/widgets/datepicker
+//= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require nested_form_fields
 //= require_tree .
@@ -22,3 +24,13 @@
 function goBack() {
     window.history.back()
 }
+
+ // $(document).ready(function(){
+ //     $('body').on('focus', ".date-picker", function(){
+ //         $(this).datepicker(
+ //             {
+ //                 dateFormat: 'yy-mm-dd'
+ //             }
+ //         );
+ //     });
+ // })

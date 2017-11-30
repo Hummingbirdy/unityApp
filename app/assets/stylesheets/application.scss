@@ -1,7 +1,46 @@
+/*
+ *= require 'masonry/transitions'
+ *= require jquery-ui/datepicker
+ *= require_tree .
+ *= require_self
+ */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  background: #D8E4FF;
+}
+
+a{
+  color: #E76F51;
+}
+
+h1, h2, h3, h4 {
+  color: #264653;
+}
+
+a:hover {
+  background-color: transparent !important;
+  text-decoration: underline;
+}
+
+/*===================Nav Bar=============*/
+nav {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  .navbar-brand {
+    a {
+      color: #c8a305 ;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/*==================Landing Page============*/
 .group-box {
 	width: 100%;
 	border: 1px solid #ddd;
@@ -10,15 +49,10 @@
 	margin-bottom:10px;
 	box-shadow: 3px 3px 3px #888;
 }
-.group-box.color-1 { background-color: #D1F2EB;}
-.group-box.color-2 { background-color: #A2D9CE;}
-.group-box.color-3 { background-color: #FCF3CF;}
-.group-box.color-4 { background-color: #F4ECF7;}
-.group-box.color-5 { background-color: #D1F2EB;}
-.group-box.color-6 { background-color: #A2D9CE;}
-.group-box.color-7 { background-color: #FCF3CF;}
-.group-box.color-8 { background-color: #F4ECF7;}
 
+.black {
+  color: black;
+}
 ul {
   list-style-type: none;
 }
@@ -52,4 +86,113 @@ ul {
 
 .input{
   width: 300px;
+}
+
+.date{
+  width: 200px;
+}
+
+.time{
+  width: 100px;
+}
+
+/*==================Calendar============*/
+
+.bubble {
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #888;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#cal .calendar {
+  border-collapse: collapse;
+  width: 100%;
+
+  td, th {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+  }
+
+  th {
+    background: #DDD;
+    color: #666;
+    text-align: center;
+    width: 14.2857142857143%;
+  }
+
+  td {
+    background: #FFF;
+    color: #777;
+    height: 80px;
+    vertical-align: top;
+    font-size: 16px;
+  }
+
+  .notmonth, .notmonth a { color: #CCC; }
+  .today { background-color: #E9C46A; }
+}
+
+#cal #month {
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 22px;
+  a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #F4A261;
+  }
+}
+
+#cal ul {
+  font-size: 11px;
+  padding-left: 20px;
+}
+.input-number {
+  width: 50px;
+}
+
+.calendar-link a {
+  color: black !important;
+}
+
+/*===================MAIN SHOW PAGE=============*/
+.main-tile {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #888;
+}
+.task-tile {
+  background: #35605a;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+#tasks {
+  margin: 0 auto;
+  width: 100%;
+  .box {
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+    background: #35605a;
+    color: white;
+    border-radius: 10px;
+  }
+}
+.group-tile {
+  padding: 10px;
+  border-radius: 10px;
+  background: #1bbc9b;
+  color: white;
+}
+
+.nav-tile {
+  background: #6B818C;
 }

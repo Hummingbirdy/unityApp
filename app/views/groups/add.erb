@@ -1,6 +1,17 @@
-<br />
-<br />
-<%= render 'a', group: @group %>
 
-<%#= link_to 'Show', @group %>
-<%#= link_to 'Back', groups_path %>
+<br />
+<br />
+<div class="container">
+<%= render 'a', group: @group %>
+</div>
+<script>
+  $(document).ready(function(){
+    $('body').on('focus', ".date-picker", function(){
+      $(this).datepicker(
+        {
+          dateFormat: 'yy-mm-dd'
+        }
+      );
+    });
+  })
+</script>
