@@ -1,11 +1,46 @@
 /*
+ *= require 'masonry/transitions'
  *= require jquery-ui/datepicker
+ *= require_tree .
+ *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
 
+body {
+  background: #D8E4FF;
+}
+
+a{
+  color: #E76F51;
+}
+
+h1, h2, h3, h4 {
+  color: #264653;
+}
+
+a:hover {
+  background-color: transparent !important;
+  text-decoration: underline;
+}
+
+/*===================Nav Bar=============*/
+nav {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  .navbar-brand {
+    a {
+      color: #c8a305 ;
+      font-weight: bold;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+/*==================Landing Page============*/
 .group-box {
 	width: 100%;
 	border: 1px solid #ddd;
@@ -15,6 +50,9 @@
 	box-shadow: 3px 3px 3px #888;
 }
 
+.black {
+  color: black;
+}
 ul {
   list-style-type: none;
 }
@@ -58,7 +96,17 @@ ul {
   width: 100px;
 }
 
-#articles .calendar {
+/*==================Calendar============*/
+
+.bubble {
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #888;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+}
+
+#cal .calendar {
   border-collapse: collapse;
   width: 100%;
 
@@ -85,10 +133,10 @@ ul {
   }
 
   .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #D7F2FF; }
+  .today { background-color: #E9C46A; }
 }
 
-#articles #month {
+#cal #month {
   margin: 0;
   padding-bottom: 10px;
   text-align: center;
@@ -96,11 +144,11 @@ ul {
   a {
     text-decoration: none;
     padding: 0 10px;
-    color: #999;
+    color: #F4A261;
   }
 }
 
-#articles ul {
+#cal ul {
   font-size: 11px;
   padding-left: 20px;
 }
@@ -110,4 +158,41 @@ ul {
 
 .calendar-link a {
   color: black !important;
+}
+
+/*===================MAIN SHOW PAGE=============*/
+.main-tile {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #888;
+}
+.task-tile {
+  background: #35605a;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+#tasks {
+  margin: 0 auto;
+  width: 100%;
+  .box {
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+    background: #35605a;
+    color: white;
+    border-radius: 10px;
+  }
+}
+.group-tile {
+  padding: 10px;
+  border-radius: 10px;
+  background: #1bbc9b;
+  color: white;
+}
+
+.nav-tile {
+  background: #6B818C;
 }

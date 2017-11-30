@@ -16,6 +16,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui/widgets/datepicker
+//= require masonry/jquery.masonry
 //= require bootstrap-sprockets
 //= require nested_form_fields
 //= require_tree .

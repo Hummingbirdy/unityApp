@@ -17,6 +17,8 @@ gem 'turbolinks', '~> 5'
 
 gem 'jbuilder', '~> 2.5'
 
+gem 'haml'
+
 gem 'responders', '~> 2.0'
 gem 'font-awesome-rails'
 
@@ -29,6 +31,8 @@ gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcrypt'
 
 gem 'nested_form_fields'
+gem 'masonry-rails', '~> 0.2.4'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
