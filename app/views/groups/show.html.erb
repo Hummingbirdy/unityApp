@@ -1,19 +1,21 @@
 <br />
 <div class="container">
-	<div class="row">
-		<div class="col-md-4">
-      <p>
+   <div class="project-header">
         <h1>
           <%= @group.title %>
           <%=link_to  edit_group_path(@group) do %><i class="fa fa-pencil-square-o >"></i><% end  %>
         </h1>
-      </p>
-      <p style="font-size: 18px;">
+      
+      <p>
         <%= @group.description %>
       </p>
-      <br />
+    </div>
+	<div class="row">
+		<div class="col-md-4">
+     
       <div class="group-tile">
       <h2>Group Members</h2>
+      <div class="underline"></div>
       <ul>
         <li><%= @group.user.email %></li>
         <% for member in @group.teammates %>
@@ -24,6 +26,8 @@
       <br/>
       <div class="document-tile">
         <h2>Documents</h2>
+        <div class="underline"></div>
+
         <ul>
           <li>
             <%= link_to 'test link to doc 1' %>
@@ -40,17 +44,14 @@
         </ul>
       </div>
     </div>
-<br><br><p style="color: #cc0514;" id="notice"><%= notice %></p>
+
     <div class="col-md-8">
-      <h2>Projects</h2>
-      <div align="right">
-        <%= link_to '+ Add/Edit Projects', add_groups_path(@group) %>
-      </div>
-      <% for project in @group.projects %>
-      <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
+           <% for project in @group.projects %>
         <div class="main-tile">
           <h3><b><%= project.name %></b> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> <% if project.due_time %><%= project.due_time.strftime(" at %I:%M %p") %> <% end %></i>)</font></h3>
-          <font style="font-size: 15px;"><%=project.description %></font></li> <br />
+          <font style="font-size: 15px;"><%=project.description %></font></li>
+                  <div class="underline"></div>
+
           <h4>Tasks</h4>
           <div class="transitions-enabled row" id="tasks">
             <% for task in project.tasks %>
@@ -73,10 +74,10 @@
           </div>
         </div>
         <br>
-        <div align="right"><%= link_to '+ Add/Edit Tasks', add_projects_path(project) %></div>
+        <div align="right">        <%= link_to '+ Add/Edit Projects', add_groups_path(@group) %>
+| <%= link_to '+ Add/Edit Tasks', add_projects_path(project) %></div>
       </div>
       <% end %>
-      <div style="border-top: 1px solid #aaa; width: 100%; padding-top: 10px; padding-bottom: 20px;">
 
         <%#= render 'a', group: @group %>
       </div>
