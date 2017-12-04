@@ -1,15 +1,14 @@
 <br />
 <div class="container">
-   <div class="project-header">
-        <h1>
-          <%= @group.title %>
-          <%=link_to  edit_group_path(@group) do %><i class="fa fa-pencil-square-o >"></i><% end  %>
-        </h1>
-      
-      <p>
-        <%= @group.description %>
-      </p>
-    </div>
+  <div class="project-header">
+    <h1>
+      <%= @group.title %>
+      <%=link_to  edit_group_path(@group) do %><i class="fa fa-pencil-square-o >"></i><% end  %>
+    </h1>
+    <p>
+      <%= @group.description %>
+    </p>
+  </div>
 	<div class="row">
 		<div class="col-md-4">
      
@@ -17,7 +16,6 @@
       <h2>Group Members</h2>
       <div class="underline"></div>
       <ul>
-        <li><%= @group.user.email %></li>
         <% for member in @group.teammates %>
             <li><%= member.email %></li>
         <% end %>
@@ -27,60 +25,95 @@
       <div class="document-tile">
         <h2>Documents</h2>
         <div class="underline"></div>
-
         <ul>
-          <li>
-            <%= link_to 'test link to doc 1' %>
-          </li>
-          <li>
-            <%= link_to 'test link 2' %>
-          </li>
-          <li>
-            <%= link_to 'one more' %>
-          </li>
-          <li>
-            <%= link_to 'last placeholder' %>
-          </li>
+          <% for document in @group.documents %>
+              <% if document.name != nil %>
+                <li><%= link_to document.name, document.attachment_url %></li>
+              <% end %>
+          <% end %>
         </ul>
+        <div align="center">
+          <button data-toggle="modal" data-target="#myModal-documents">
+            <i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
     </div>
-
     <div class="col-md-8">
-           <% for project in @group.projects %>
-        <div class="main-tile">
-          <h3><b><%= project.name %></b> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> <% if project.due_time %><%= project.due_time.strftime(" at %I:%M %p") %> <% end %></i>)</font></h3>
-          <font style="font-size: 15px;"><%=project.description %></font></li>
-                  <div class="underline"></div>
-
-          <h4 class="task">Tasks</h4>
-          <div class="underline-left"></div>
-          <div class="transitions-enabled row" id="tasks">
-            <% for task in project.tasks %>
-                  <div class="task-tile">
-                    <div><b><%= task.name %></b></div>
-                    <div><%= task.description %></div>
-                    <% if task.due_date %>
-                      <div>Due on <%= task.due_date %> <% if task.due_time %><%= task.due_time.strftime(" at %I:%M %p") %><% end %></div>
-                    <% end %>
-                    <% if task.hours %>
-                      <div>Estimated <%= task.hours %> hours to go</div>
-                    <% end %>
-                    <div> Assigned To: <%= task.member %> </div>
-                    <br />
-                  </div>
-                <br>
-            <% end %>
-          </div>
+      <div class="main-tile">
+        <h2>Projects</h2>
+        <div class="underline"></div>
+        <div align="center">
+          <button data-toggle="modal" data-target="#myModal-projects">
+            <i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i>
+          </button>
         </div>
-        <br>
-        <div align="right">        <%= link_to '+ Add/Edit Projects', add_groups_path(@group) %>
-| <%= link_to '+ Add/Edit Tasks', add_projects_path(project) %></div>
-      </div>
-      <% end %>
+        <br/>
+        <% for project in @group.projects %>
+            <% if project.name != nil  %>
+              <div class="project-tile">
+                <h3><b><%= project.name %></b> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> <% if project.due_time %><%= project.due_time.strftime(" at %I:%M %p") %> <% end %></i>)</font></h3>
+                <font style="font-size: 15px;"><%=project.description %></font></li>
 
-        <%#= render 'a', group: @group %>
+                <h4 class="task">Tasks</h4>
+                <div class="underline-left"></div>
+                <div align="center">
+                  <button data-toggle="modal" data-target="#myModal-tasks">
+                    <i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div id="tasks">
+                  <% for task in project.tasks %>
+                        <div class="row tasks">
+                          <div class="col-md-8">
+                            <div><b><%= task.name %></b></div>
+                            <div><%= task.description %></div>
+                            <% if task.due_date %>
+                              <div>Due on <%= task.due_date %> <% if task.due_time %><%= task.due_time.strftime(" at %I:%M %p") %><% end %></div>
+                            <% end %>
+                          </div>
+                          <div class="col-md-4">
+                            <% if task.hours %>
+                              <div>Estimated <%= task.hours %> hours to go</div>
+                            <% end %>
+                            <div> Assigned To: <%= task.member %> </div>
+                          </div>
+                          <br />
+                        </div>
+                        <br>
+                  <% end %>
+                </div>
+              </div>
+                <%= render 'task', project: project %>
+            <% end %>
+          <br>
+
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+<%= render 'project', group: @group %>
+<%= render 'd', group: @group %>
+<%#= render 'task', project: @group.project %>
+<script>
+    $('#myModal-projects').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+    $('#myModal-documents').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+    $('#myModal-tasks').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+    $(document).ready(function(){
+        $('.modal-body').on('focus', ".date-picker", function(){
+            $(this).datepicker(
+                {
+                    dateFormat: 'yy-mm-dd'
+                }
+            );
+        });
+    })
+</script>
 

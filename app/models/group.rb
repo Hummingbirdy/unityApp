@@ -4,4 +4,7 @@ class Group < ApplicationRecord
   accepts_nested_attributes_for :projects, allow_destroy: true
   has_many :teammates, dependent: :destroy
   accepts_nested_attributes_for :teammates, allow_destroy: true
+  has_many :documents, dependent: :destroy
+  accepts_nested_attributes_for :documents, allow_destroy: true
+
 end
