@@ -9,8 +9,10 @@
 %body
   %nav.navbar.navbar-default
     .container-fluid
-      .triangle= image_tag ('http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png'), class: 'triangle-size'
-      .navbar-brand= link_to 'UNITY', root_path
+      %a{ :href => '/'}
+        .triangle= image_tag ('http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png'), class: 'triangle-size'
+        .navbar-brand
+          UNITY
 
 
       - if user_signed_in?
