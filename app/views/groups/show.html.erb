@@ -65,14 +65,14 @@
                 <div id="tasks">
                   <% for task in project.tasks %>
                         <div class="row tasks">
-                          <div class="col-md-8">
+                          <div class="col-md-7">
                             <div><b><%= task.name %></b></div>
                             <div><%= task.description %></div>
                             <% if task.due_date %>
                               <div>Due on <%= task.due_date %> <% if task.due_time %><%= task.due_time.strftime(" at %I:%M %p") %><% end %></div>
                             <% end %>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-5">
                             <% if task.hours %>
                               <div>Estimated <%= task.hours %> hours to go</div>
                             <% end %>
