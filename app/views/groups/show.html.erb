@@ -58,6 +58,9 @@
                 <h4 class="task">Tasks</h4>
                 <div class="underline-left"></div>
                 <div align="center">
+                  <!--<a href="#myModal-tasks" role="button" data-toggle="modal" class="btn-standard">-->
+                    <!--<i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i>-->
+                  <!--</a>-->
                   <button data-toggle="modal" data-target="#myModal-tasks">
                     <i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i>
                   </button>
@@ -97,17 +100,17 @@
 <%= render 'd', group: @group %>
 <%#= render 'task', project: @group.project %>
 <script>
-    $('#myModal-projects').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-    })
-    $('#myModal-documents').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-    })
-    $('#myModal-tasks').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-    })
-    $(document).ready(function(){
-        $('.modal-body').on('focus', ".date-picker", function(){
+//    $('#myModal-projects').on('shown.bs.modal', function () {
+//        $('#myInput').focus()
+//    })
+//    $('#myModal-documents').on('shown.bs.modal', function () {
+//        $('#myInput').focus()
+//    })
+//    $('#myModal-tasks').on('shown.bs.modal', function () {
+//        $('#myInput').focus()
+//    })
+    $(function(){
+        $('body').on('focus', ".date-picker", function(){
             $(this).datepicker(
                 {
                     dateFormat: 'yy-mm-dd'
