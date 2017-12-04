@@ -8,8 +8,10 @@
 
 %body
   %nav.navbar.navbar-default
-    .container
+    .container-fluid
+      .triangle= image_tag ('http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png'), class: 'triangle-size'
       .navbar-brand= link_to 'UNITY', root_path
+
 
       - if user_signed_in?
         %ul.nav.navbar-nav.navbar-right
@@ -21,10 +23,9 @@
         %ul.nav.navbar-nav.navbar-right
           %li= link_to 'Sign Up', new_user_registration_path
           %li= link_to 'Sign In', new_user_session_path
-  .container
+  .container-fluid
     - flash.each do |name, msg|
       = content_tag :div, msg, class: 'alert alert-info'
 
     .body
       = yield
-

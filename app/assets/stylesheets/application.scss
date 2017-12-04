@@ -11,8 +11,13 @@
 @import "font-awesome";
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
+html {
+     min-height: 100%;
+     position: relative;
+}
 
 body {
+  height:100%;
   background: #f7f6f4;
 }
 
@@ -42,26 +47,84 @@ a:hover {
 }
 
 /*===================Nav Bar=============*/
+.triangle {
+    position: absolute;
+    margin-left: 0;
+    width: 200px;
+  }
+
+.triangle-size {
+  width: 50px;
+}
+
 nav {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding-left: 30px;
+  padding-right: 30px;
+
   .navbar-brand {
     a {
-      color: #c8a305 ;
+      font-size: 30px;
+      color: #c8a305;
       font-weight: bold;
+      margin-left: 60px;
       &:hover {
         text-decoration: none;
+        color: #3B8784 !important;
       }
     }
   }
 }
 .navbar-default {
-  background: #848381!important;
+  background: #aaaaaa !important;
 }
 
 .navbar-default a {
   color: white !important;
+   &:hover {
+      color: #3B8784 !important;
+   }
 }
 /*==================Landing Page============*/
+
+
+.front-pic {
+  width: 95%;
+  
+}
+.comm1 {
+  font-size: 55px;
+  font-weight: bold;
+  color: #B7AD3C;
+}
+
+.comm2 {
+  font-size: 55px;
+  font-weight: bold;
+  color: #6C4996;
+}
+
+.comm3 {
+  font-size: 55px;
+  font-weight: bold;
+  color: #3B8784;
+}
+
+.comm4 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #aaaaaa;
+}
+
+.comm5 {
+  font-size: 65px;
+  font-weight: bold;
+  color: #6C4996;
+  margin-top: 15px;
+}
+
+
 .group-box {
 	width: 250px;
 	border: 1px solid #ddd;
@@ -122,6 +185,26 @@ ul {
 
 .time{
   width: 100px;
+}
+
+/*==================Set up============*/
+
+.h1-top {
+  margin-top: 200px;
+}
+
+.btn {
+  background-color: #DE9861 !important;
+  color: #000 !important;
+  font-size: 20px;
+  &:hover {
+    background-color: #3B8784 !important;
+    color: #ded461 !important;
+  }
+}
+
+.btn-padding {
+  padding: 15px;
 }
 
 /*==================Calendar============*/
