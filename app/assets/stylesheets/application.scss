@@ -71,8 +71,9 @@ nav {
     font-size: 30px;
     color: white !important;
     font-weight: bold;
-    margin-left: 60px;
-  }
+    padding-left: 65px;
+    position: absolute;
+  
 }
 .navbar-default {
   background: #aaaaaa !important;
@@ -278,7 +279,7 @@ ul {
 }
 
 .main-tile {
-  background: #FFCE6B;
+  background: #ded461;
   padding: 15px;
   border-radius: 10px;
   min-height: 520px;
@@ -294,7 +295,7 @@ ul {
 }
 
 .document-tile {
-  background: #49516F;
+  background: #3b8784;
   padding: 15px;
   border-radius: 10px;
   min-height: 250px;
@@ -322,7 +323,7 @@ ul {
 .group-tile {
   padding: 10px;
   border-radius: 10px;
-  background: #1bbc9b;
+  background: #de9861;
   color: white !important;
   min-height: 250px;
 }
