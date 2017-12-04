@@ -1,0 +1,67 @@
+
+<div class="modal fade" id="myModal-projects" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title" id="myModalLabel"><%= group.title %></h2>
+      </div>
+
+      <%= form_with(model: group, local: true) do |form| %>
+          <div class="modal-body">
+            <h1><%#= group.title %></h1>
+            <div class="form-group">
+
+              <%= form.nested_fields_for :projects do |project| %>
+                  <div class="project-form">
+                    <div class="row">
+                      <div class="col-md-11"></div>
+                      <div class="col-md-1">
+                        <div class="pull-right">
+                          <%= project.remove_nested_fields_link %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div align="right" class="col-md-4">
+                        <b>Project Name: </b>
+                      </div>
+                      <div class="col-md-8">
+                        <%= project.text_field :name, placeholder: 'e.g., Final Paper', class: 'input' %>
+                        <%#= project.remove_nested_fields_link %> <br />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div align="right" class="col-md-4">
+                        <b>Description: </b>
+                      </div>
+                      <div class="col-md-8">
+                        <%= project.text_area :description, placeholder: 'optional', class: 'input' %> <br />
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div align="right" class="col-md-4">
+                        <b>Due Date: </b>
+                      </div>
+                      <div class="col-md-8">
+                        <%= project.text_field :due_date, class: 'date-picker date' %>
+                        <%= project.time_field :due_time, class: 'time' %>
+                      </div>
+                    </div>
+                  </div>
+                  <br/>
+              <% end %>
+              <%= form.add_nested_fields_link :projects, '+ Add Project' %>
+            </div>
+            <!--<div align="right" class="actions">-->
+              <!--<%#= form.submit 'Save', class: 'btn-standard' %>-->
+            <!--</div>-->
+        </div>
+          <div class="modal-footer">
+            <button class="btn-standard" data-dismiss="modal" aria-hidden="true">Close</button>
+            <%= form.submit 'Save', class: 'btn-standard' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

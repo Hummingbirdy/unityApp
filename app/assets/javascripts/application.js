@@ -18,12 +18,15 @@
 //= require jquery-ui/widgets/datepicker
 //= require masonry/jquery.masonry
 //= require bootstrap-sprockets
+//= require bootstrap-modal
+//= require bootstrap-modalmanager
 //= require nested_form_fields
 //= require_tree .
 
 function goBack() {
     window.history.back()
 }
+
 
  // $(document).ready(function(){
  //     $('body').on('focus', ".date-picker", function(){

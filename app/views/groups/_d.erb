@@ -1,0 +1,32 @@
+<div class="modal fade" id="myModal-documents" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+
+      <%= form_with(model: group, local: true) do |form| %>
+        <div class="modal-body">
+          <div class="form-group row">
+            <%= form.nested_fields_for :documents do |document| %>
+                <div align="right" class="col-md-3">
+                  <label>Documents: </label>
+                </div>
+                <div class="col-md-6">
+                  <%= document.text_field :name, placeholder: 'document name', class: 'input' %>
+                  <%= document.file_field :attachment %>
+                  <%= document.remove_nested_fields_link %> <br />
+                </div>
+            <% end %>
+            <%= form.add_nested_fields_link :documents, '+ Add Documents' %>
+          </div>
+        </div>
+          <div class="modal-footer">
+            <button class="btn-standard" data-dismiss="modal" aria-hidden="true">Close</button>
+            <%= form.submit 'Save', class: 'btn-standard' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

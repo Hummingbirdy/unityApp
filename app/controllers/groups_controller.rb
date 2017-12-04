@@ -16,11 +16,15 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
+    @group.projects.build
+    @group.documents.build
+    @teammates = @group.teammates
   end
 
   # GET /groups/new
   def new
     @group = current_user.groups.build
+    @group.teammates.build(email: current_user.email)
   end
 
   # GET /groups/1/edit
@@ -31,6 +35,8 @@ class GroupsController < ApplicationController
   def add
   end
 
+  def document
+  end
 
   # POST /groups
   # POST /groups.json
@@ -82,6 +88,7 @@ class GroupsController < ApplicationController
     def group_params
       params.require(:group).permit(:title, :description, :hex,
                                     projects_attributes:[:id, :name, :description, :due_date, :due_time, :_destroy],
-                                    teammates_attributes:[:id, :email, :_destroy])
+                                    teammates_attributes:[:id, :email, :_destroy],
+                                    documents_attributes:[:id, :name, :attachment, :_destroy])
     end
 end

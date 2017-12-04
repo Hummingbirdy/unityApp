@@ -25,6 +25,7 @@ gem 'font-awesome-rails'
 
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap-sass'
+gem 'bootstrap-modal-rails'
 gem 'jquery-ui-rails'
 
 gem 'devise'
@@ -33,6 +34,7 @@ gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', require: 'bcry
 gem 'nested_form_fields'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'simple_form'
+gem 'carrierwave', '~> 1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

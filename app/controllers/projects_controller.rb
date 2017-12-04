@@ -29,6 +29,7 @@ class ProjectsController < ApplicationController
      #   format.html { redirect_to group_path(@project.group_id), notice: 'Task was successfully created.' }
      # end
     #end
+    @teammates = @project.group.teammates
   end
 
   # POST /projects

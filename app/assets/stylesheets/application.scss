@@ -1,6 +1,7 @@
 /*
  *= require 'masonry/transitions'
  *= require jquery-ui/datepicker
+ *= require bootstrap-modal
  *= require_tree .
  *= require_self
  */
@@ -34,6 +35,10 @@ a:hover {
 
 .btn-standard button.hover {
   background: #F4A261;
+}
+
+.date-picker {
+  z-index: 1151 !important;
 }
 
 /*===================Nav Bar=============*/
@@ -195,7 +200,7 @@ ul {
   background: #FFCE6B;
   padding: 15px;
   border-radius: 10px;
-  height: 520px;
+  min-height: 520px;
 }
 .task-tile {
   padding: 15px;
@@ -203,12 +208,22 @@ ul {
   color: white;
   background: #DFAA48;
 }
+.tasks {
+  padding: 20px;
+}
 
 .document-tile {
   background: #49516F;
   padding: 15px;
   border-radius: 10px;
   height: 250px;
+}
+
+.project-tile {
+  padding: 15px;
+  border-radius: 10px;
+  color: white !important;;
+  background: #824C71;
 }
 
 #tasks {
@@ -230,9 +245,16 @@ ul {
   color: white !important;
   height: 250px;
 }
-.group-tile h2, .document-tile h2, .task-tile h2, .main-tile h3 {
+.group-tile h2, .document-tile h2, .task-tile h2, .main-tile h2 {
   color: white !important;
   text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.project-tile h3 {
+  color: white !important;
   font-size: 20px;
   text-transform: uppercase;
   font-family: 'Fira Sans', sans-serif;
@@ -261,4 +283,11 @@ h4.task {
 }
 .nav-tile {
   background: #6B818C;
+}
+
+/*===================Forms=============*/
+.project-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
 }
