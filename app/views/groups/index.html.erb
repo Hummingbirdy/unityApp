@@ -25,22 +25,17 @@
         <font class="comm4">to your team.</font></div></div>
       <div class="col-md-8"><img src="http://www.jamesfoster.org/tecm4400/images/4400-1.jpg" class="front-pic"></div>
     </div>
-    
   </div>
-  <% elsif blank == true %>
-      <div class="container-fluid">
-        <div class="row">
+<% elsif blank == true %>
+    <div class="container-fluid">
+      <div class="row">
         <h1 class="h1-top" align="center"><img src="http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png" style="width: 100px; margin-top: -35px;">&nbsp;&nbsp;<font class="comm5">UNITY</font></h1><br><br>
           <center><%= link_to 'Click here to start!', new_group_path, class: 'btn btn-primary btn-padding' %> </center>
         </div>
       </div>
-  <% else %>
-
+<% else %>
     <div class="container-fluid">
-      <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-
       <div class="row">
-
         <div class="col-md-8">
           <div id="cal">
             <h2 id="month">
@@ -84,6 +79,9 @@
 
         </div>
         <div class="col-md-4" style="margin-top: -60px;">
+          <br/>
+          <br/>
+          <br/>
           <h2><center>My Groups</center></h2>
           <br/>
           <div id="MyGroups">
@@ -121,7 +119,7 @@
         <!--<p style="color: #cc0514;" id="notice"><%= notice %></p>-->
       </div>
 
-    </div><!--closes row-->
+    </div>
   </div>
 <% end %>
 

@@ -16,8 +16,12 @@ class GroupsController < ApplicationController
   # GET /groups/1
   # GET /groups/1.json
   def show
-    @group.projects.build
-    @group.documents.build
+    if @group.projects.count.zero?
+      @group.projects.build
+    end
+    if @group.documents.count.zero?
+      @group.documents.build
+    end
     @teammates = @group.teammates
   end
 

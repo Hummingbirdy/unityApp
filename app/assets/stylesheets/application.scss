@@ -42,7 +42,11 @@ a:hover {
   background: #F4A261;
 }
 
-.date-picker {
+.btn btn-edit {
+  background: white !important;
+}
+
+.datepicker {
   z-index: 1151 !important;
 }
 
@@ -64,16 +68,10 @@ nav {
   padding-right: 30px;
 
   .navbar-brand {
-    a {
-      font-size: 30px;
-      color: #c8a305;
-      font-weight: bold;
-      margin-left: 60px;
-      &:hover {
-        text-decoration: none;
-        color: #3B8784 !important;
-      }
-    }
+    font-size: 30px;
+    color: white !important;
+    font-weight: bold;
+    margin-left: 60px;
   }
 }
 .navbar-default {
@@ -370,6 +368,12 @@ h4.task {
 
 /*===================Forms=============*/
 .project-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
+}
+
+.group-form{
   padding: 10px;
   border-radius: 10px;
   background: #DCCCA3;

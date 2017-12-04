@@ -21,14 +21,7 @@
     <% hex_code = '999999' %>
 <% end %>
 
-<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-  <!--<div class="modal-dialog" role="document">-->
-    <!--<div class="modal-content">-->
-      <!--<div class="modal-header">-->
-        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-        <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
-      <!--</div>-->
-      <!--<div class="modal-body">-->
+
       <div class="container-fluid">
         <%= form_with(model: group, local: true,) do |form| %>
           <% if group.errors.any? %>
@@ -42,43 +35,46 @@
               </ul>
             </div>
           <% end %>
+
           <div align="center" class="col-md-8">
-            <div class="form-group row">
-              <div align="right" class="col-md-3">
-                <lable><b>Class Name</b></lable>
+            <div class="group-form">
+              <div class="form-group row">
+                <div align="right" class="col-md-3">
+                  <lable><b>Class Name</b></lable>
+                </div>
+                <div class="col-md-5">
+                  <%= form.text_field :title, id: :group_title, placeholder: 'e.g., MATH 1500', class: 'input' %>
+                </div>
               </div>
-              <div class="col-md-5">
-                <%= form.text_field :title, id: :group_title, placeholder: 'e.g., MATH 1500', class: 'input' %>
-              </div>
-            </div>
 
-            <div class="form-group row">
-              <div align="right" class="col-md-3">
-                <%= form.label :description %>:
+              <div class="form-group row">
+                <div align="right" class="col-md-3">
+                  <%= form.label :description %>:
+                </div>
+                <div class="col-md-5">
+                  <%= form.text_area :description, id: :group_description, placeholder: 'optional', class: 'input' %>
+                </div>
               </div>
-              <div class="col-md-5">
-                <%= form.text_area :description, id: :group_description, placeholder: 'optional', class: 'input' %>
+              <div class="form-group row">
+                <%= form.nested_fields_for :teammates do |member| %>
+                    <div align="right" class="col-md-3">
+                     <label>Group Member: </label>
+                    </div>
+                    <div class="col-md-6">
+                      <%= member.text_field :email, placeholder: 'email', class: 'input' %>
+                      <%= member.remove_nested_fields_link %> <br />
+                    </div>
+                <%end %>
+                <%= form.add_nested_fields_link :teammates, '+ Add a Group Member' %>
               </div>
-            </div>
-            <div class="form-group row">
-              <%= form.nested_fields_for :teammates do |member| %>
-                  <div align="right" class="col-md-3">
-                   <label>Group Member: </label>
-                  </div>
-                  <div class="col-md-6">
-                    <%= member.text_field :email, placeholder: 'email', class: 'input' %>
-                    <%= member.remove_nested_fields_link %> <br />
-                  </div>
-              <%end %>
-              <%= form.add_nested_fields_link :teammates, '+ Add a Group Member' %>
-            </div>
 
-            <%= form.hidden_field :hex, :value => hex_code %>
-            <div align="right" class="actions">
-              <%= form.submit 'Save', class: 'btn-standard' %>
-              <%= link_to 'Back', groups_path %>
+              <%= form.hidden_field :hex, :value => hex_code %>
+              <div align="right" class="actions">
+                <%= form.submit 'Save', class: 'btn-standard' %>
+                <%= link_to 'Back', groups_path %>
+              </div>
             </div>
-          <!--</div>-->
+          </div>
 
         <% end %>
       </div>

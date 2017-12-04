@@ -58,21 +58,24 @@
                 <h4 class="task">Tasks</h4>
                 <div class="underline-left"></div>
                 <div align="center">
-                  <button data-toggle="modal" data-target="#myModal-tasks">
-                    <i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i>
-                  </button>
+                  <a href="#myModal-tasks-<%= project.id %>" role="button" data-toggle="modal">
+                    <button><i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i></button>
+                  </a>
+                  <!--<button data-toggle="modal" data-target="#myModal-tasks-<%= project.id %>">-->
+                    <!--<i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i>-->
+                  <!--</button>-->
                 </div>
                 <div id="tasks">
                   <% for task in project.tasks %>
                         <div class="row tasks">
-                          <div class="col-md-8">
+                          <div class="col-md-7">
                             <div><b><%= task.name %></b></div>
                             <div><%= task.description %></div>
                             <% if task.due_date %>
                               <div>Due on <%= task.due_date %> <% if task.due_time %><%= task.due_time.strftime(" at %I:%M %p") %><% end %></div>
                             <% end %>
                           </div>
-                          <div class="col-md-4">
+                          <div class="col-md-5">
                             <% if task.hours %>
                               <div>Estimated <%= task.hours %> hours to go</div>
                             <% end %>
@@ -103,17 +106,15 @@
     $('#myModal-documents').on('shown.bs.modal', function () {
         $('#myInput').focus()
     })
-    $('#myModal-tasks').on('shown.bs.modal', function () {
-        $('#myInput').focus()
-    })
-    $(document).ready(function(){
-        $('.modal-body').on('focus', ".date-picker", function(){
-            $(this).datepicker(
-                {
-                    dateFormat: 'yy-mm-dd'
-                }
-            );
-        });
-    })
+//    $('#myModal-tasks').on('shown.bs.modal', function () {
+//        $('#myInput').focus()
+//    })
+    $('.modal-body').on('focus', ".date-picker", function(){
+        $(this).datepicker(
+            {
+                dateFormat: 'yy-mm-dd'
+            }
+        );
+    });
 </script>
 
