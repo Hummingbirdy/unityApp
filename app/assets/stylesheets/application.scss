@@ -195,7 +195,7 @@ ul {
   background: #FFCE6B;
   padding: 15px;
   border-radius: 10px;
-  height: 520px;
+  min-height: 520px;
 }
 .task-tile {
   padding: 15px;
@@ -208,7 +208,7 @@ ul {
   background: #49516F;
   padding: 15px;
   border-radius: 10px;
-  height: 250px;
+  min-height: 250px;
 }
 
 #tasks {
@@ -228,7 +228,7 @@ ul {
   border-radius: 10px;
   background: #1bbc9b;
   color: white !important;
-  height: 250px;
+  min-height: 250px;
 }
 .group-tile h2, .document-tile h2, .task-tile h2, .main-tile h3 {
   color: white !important;
