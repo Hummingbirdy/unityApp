@@ -100,15 +100,15 @@
 <%= render 'd', group: @group %>
 <%#= render 'task', project: @group.project %>
 <script>
-//    $('#myModal-projects').on('shown.bs.modal', function () {
-//        $('#myInput').focus()
-//    })
-//    $('#myModal-documents').on('shown.bs.modal', function () {
-//        $('#myInput').focus()
-//    })
-//    $('#myModal-tasks').on('shown.bs.modal', function () {
-//        $('#myInput').focus()
-//    })
+    $('#myModal-projects').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+    $('#myModal-documents').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
+    $('#myModal-tasks').on('shown.bs.modal', function () {
+        $('#myInput').focus()
+    })
     $(function(){
         $('body').on('focus', ".date-picker", function(){
             $(this).datepicker(
