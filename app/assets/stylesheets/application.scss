@@ -34,6 +34,11 @@ a:hover {
   text-decoration: underline;
 }
 
+.main-container {
+  margin: 0;
+  padding: 0;
+}
+
 .btn-standard {
   background-color: #E76F51
 }
@@ -73,7 +78,7 @@ nav {
     font-weight: bold;
     padding-left: 65px;
     position: absolute;
-  
+ } 
 }
 .navbar-default {
   background: #aaaaaa !important;
@@ -87,7 +92,12 @@ nav {
 }
 /*==================Landing Page============*/
 
-
+.carousel-inner {
+  min-height: 100%;
+}
+.main-image {
+  background-image: url('http://www.jamesfoster.org/tecm4400/images/group1.jpg');
+}
 .front-pic {
   width: 95%;
   

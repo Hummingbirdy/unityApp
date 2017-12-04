@@ -14,18 +14,42 @@
     <% end %>
 
 <% if !user_signed_in? %>
-  <div class="container-fluid" style="padding: 0;">
-    <div class="row" style="padding: 0;">
-      
-      <div class="col-md-4" style="text-align: right;"><div style="margin-top: 100px;"><font class="comm1">COMMUNICATE.</font><br>
-        <font class="comm2">COLLABORATE.</font><br>
-        <font class="comm3">COORDINATE.</font><br><br>
-        <font class="comm4">It's time to bring</font><br>
-        <font class="comm2">UNITY</font><br>
-        <font class="comm4">to your team.</font></div></div>
-      <div class="col-md-8"><img src="http://www.jamesfoster.org/tecm4400/images/4400-1.jpg" class="front-pic"></div>
+  <div class="container-fluid" style="padding: 0 !important;">
+   
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png" alt="Los Angeles" style="width:50%;">
+      </div>
+
+      <div class="item">
+        <img src="http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png" alt="Chicago" style="width:50%;">
+      </div>
+    
+      <div class="item">
+        <img src="http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png" alt="New york" style="width:50%;">
+      </div>
     </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
+</div>
 <% elsif blank == true %>
     <div class="container-fluid">
       <div class="row">
