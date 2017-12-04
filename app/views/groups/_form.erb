@@ -2,21 +2,21 @@
 <% hex_code = '000000' %>
 
 <% if hex_id == 1 %>
-    <% hex_code = 'e6e6fa' %>
+    <% hex_code = 'ffdcc0' %>
 <% elsif hex_id == 2 %>
-    <% hex_code = 'fffacd' %>
+    <% hex_code = 'fff798' %>
 <% elsif hex_id ==  3 %>
-    <% hex_code = 'afeeee' %>
+    <% hex_code = 'b9a3d3' %>
 <% elsif hex_id ==  4 %>
-    <% hex_code = '7fffd4' %>
+    <% hex_code = '98c9c8' %>
 <% elsif hex_id ==  5 %>
-    <% hex_code = 'f0e68c' %>
+    <% hex_code = 'fffac0' %>
 <% elsif hex_id ==  6 %>
-    <% hex_code = 'eedd82' %>
+    <% hex_code = 'ffc698' %>
 <% elsif hex_id ==  7 %>
-    <% hex_code = 'e9967a' %>
+    <% hex_code = '8d6fb1' %>
 <% elsif hex_id ==  8 %>
-    <% hex_code = 'ee82ee' %>
+    <% hex_code = '5fa093' %>
 <% else %>
     <% hex_code = '999999' %>
 <% end %>
@@ -29,7 +29,7 @@
         <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
       <!--</div>-->
       <!--<div class="modal-body">-->
-
+      <div class="container-fluid">
         <%= form_with(model: group, local: true,) do |form| %>
           <% if group.errors.any? %>
             <div id="error_explanation">
@@ -81,6 +81,7 @@
           <!--</div>-->
 
         <% end %>
+      </div>
       <!--</div>-->
 
       <!--<div class="modal-footer">-->
