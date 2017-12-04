@@ -1,7 +1,5 @@
-<br />
-<br/>
-<br/>
-
+<br>
+<br>
 <% blank = true %>
 <% if user_signed_in? %>
 <% @groups.each do |group| %>
@@ -17,10 +15,18 @@
     <% end %>
 
 <% if !user_signed_in? %>
-  <div class="container-fluid">
-    <div align="center">
-      <img src="http://i.imgur.com/2jAvKkl.jpg" style="width: 85%" >
+  <div class="container-fluid" style="padding: 0;">
+    <div class="row" style="padding: 0;">
+      
+      <div class="col-md-4" style="text-align: right;"><div style="margin-top: 100px;"><font class="comm1">COMMUNICATE.</font><br>
+        <font class="comm2">COLLABORATE.</font><br>
+        <font class="comm3">COORDINATE.</font><br><br>
+        <font class="comm4">It's time to bring</font><br>
+        <font class="comm2">UNITY</font><br>
+        <font class="comm4">to your team.</font></div></div>
+      <div class="col-md-8"><img src="http://www.jamesfoster.org/tecm4400/images/4400-1.jpg" class="front-pic"></div>
     </div>
+    
   </div>
   <% elsif blank == true %>
       <div class="container-fluid">
