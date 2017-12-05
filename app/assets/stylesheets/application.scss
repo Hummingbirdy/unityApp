@@ -81,7 +81,9 @@ nav {
  } 
 }
 .navbar-default {
-  background: #aaaaaa !important;
+   background: #aaa !important;
+   
+   z-index: 1000;
 }
 
 .navbar-default a {
@@ -93,8 +95,28 @@ nav {
 /*==================Landing Page============*/
 
 .carousel-inner {
-  min-height: 100%;
+  max-height: 80%;
+  margin-top: -50px;
 }
+
+.carousel-indicators {
+    text-align: right;
+    float: right;
+    right: 2% !important;
+    left: inherit;
+    padding-bottom: 30px !important;
+    font-size: 50px;
+}
+
+.main1 {
+  position: relative;
+  
+  z-index: 1001;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .main-image {
   background-image: url('http://www.jamesfoster.org/tecm4400/images/group1.jpg');
 }
