@@ -46,11 +46,11 @@ a:hover {
   background: white !important;
 }
 
-.datepicker {
-  z-index: 1600 !important;
-}
+.ui-datepicker {
+  position: relative;
+  z-index: 10000 !important; }
 
-/*===================Nav Bar=============*/
+  /*===================Nav Bar=============*/
 .triangle {
     position: absolute;
     margin-left: 0;
@@ -59,6 +59,11 @@ a:hover {
 
 .triangle-size {
   width: 50px;
+}
+
+.link{
+  padding: 20px;
+  position: absolute;
 }
 
 nav {
@@ -73,6 +78,7 @@ nav {
     font-weight: bold;
     padding-left: 65px;
     position: absolute;
+  }
   
 }
 .navbar-default {
@@ -375,6 +381,18 @@ h4.task {
 }
 
 .group-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
+}
+
+.task-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
+}
+
+.document-form{
   padding: 10px;
   border-radius: 10px;
   background: #DCCCA3;

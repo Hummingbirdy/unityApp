@@ -8,26 +8,22 @@
 
 %body
   %nav.navbar.navbar-default
-    .container-fluid
-      %a{ :href => '/'}
-        .triangle= image_tag ('http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png'), class: 'triangle-size'
-        .navbar-brand
-          UNITY
+    %a{ :href => '/'}
+      .triangle= image_tag ('http://www.jamesfoster.org/tecm4400/images/logotriangle-01.png'), class: 'triangle-size'
+      .navbar-brand
+        UNITY
 
-
-      - if user_signed_in?
-        %ul.nav.navbar-nav.navbar-right
-          %li= link_to 'New Group', new_group_path
-          %li= link_to 'My Documents'
-          %li= link_to 'Profile', edit_user_registration_path
-          %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
-      - else
-        %ul.nav.navbar-nav.navbar-right
-          %li= link_to 'Sign Up', new_user_registration_path
-          %li= link_to 'Sign In', new_user_session_path
+    - if user_signed_in?
+      .nav.navbar-nav.navbar-right
+        .link= link_to 'New Group', new_group_path
+        .link= link_to 'Profile', edit_user_registration_path
+        .link= link_to 'Sign Out', destroy_user_session_path, method: :delete
+    - else
+      %ul.nav.navbar-nav.navbar-right
+        = link_to 'Sign Up', new_user_registration_path
+        = link_to 'Sign In', new_user_session_path
   .container-fluid
-    - flash.each do |name, msg|
-      = content_tag :div, msg, class: 'alert alert-info'
-
     .body
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: 'alert alert-info'
       = yield

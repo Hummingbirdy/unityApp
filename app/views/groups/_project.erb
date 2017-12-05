@@ -4,14 +4,12 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title" id="myModalLabel"><%= group.title %></h2>
+        <h3 class="modal-title" id="myModalLabel"><%= group.title %></h3>
       </div>
 
       <%= form_with(model: group, local: true) do |form| %>
           <div class="modal-body">
-            <h1><%#= group.title %></h1>
             <div class="form-group">
-
               <%= form.nested_fields_for :projects do |project| %>
                   <div class="project-form">
                     <div class="row">
@@ -58,8 +56,7 @@
             <!--</div>-->
         </div>
           <div class="modal-footer">
-            <button class="btn-standard" data-dismiss="modal" aria-hidden="true">Close</button>
-            <%= form.submit 'Save', class: 'btn-standard' %>
+            <%= form.submit 'Save', class: 'btn btn-standard' %>
           </div>
       <% end %>
     </div>
