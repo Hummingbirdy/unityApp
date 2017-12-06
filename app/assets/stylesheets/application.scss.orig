@@ -1,0 +1,435 @@
+/*
+ *= require 'masonry/transitions'
+ *= require jquery-ui/datepicker
+ *= require bootstrap-modal
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans');
+
+html {
+     min-height: 100%;
+     position: relative;
+}
+
+body {
+  height:100%;
+  background: #f7f6f4;
+}
+
+a, a:visited{
+  color: #E76F51;
+}
+
+h1, h2, h3, h4 {
+  color: #264653;
+}
+
+a:hover {
+  background-color: transparent !important;
+  text-decoration: underline;
+}
+
+.main-container {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-standard {
+  background-color: #E76F51
+}
+
+.btn-standard button.hover {
+  background: #F4A261;
+}
+
+.btn btn-edit {
+  background: white !important;
+}
+
+.ui-datepicker {
+  position: relative;
+  z-index: 10000 !important; }
+
+  /*===================Nav Bar=============*/
+.triangle {
+    position: absolute;
+    margin-left: 0;
+    width: 200px;
+  }
+
+.triangle-size {
+  width: 50px;
+}
+
+.link{
+  padding: 20px;
+  position: absolute;
+}
+
+nav {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding-left: 30px;
+  padding-right: 30px;
+
+  .navbar-brand {
+    font-size: 30px;
+    color: white !important;
+    font-weight: bold;
+    padding-left: 65px;
+    position: absolute;
+<<<<<<< HEAD
+  }
+  
+=======
+ } 
+>>>>>>> origin/develop
+}
+.navbar-default {
+   background: #aaa !important;
+   
+   z-index: 1000;
+}
+
+.navbar-default a {
+  color: white !important;
+   &:hover {
+      color: #3B8784 !important;
+   }
+}
+/*==================Landing Page============*/
+
+.carousel-inner {
+  max-height: 80%;
+  margin-top: -50px;
+}
+
+.carousel-indicators {
+    text-align: right;
+    float: right;
+    right: 2% !important;
+    left: inherit;
+    padding-bottom: 30px !important;
+    font-size: 50px;
+}
+
+.main1 {
+  position: relative;
+  
+  z-index: 1001;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-image {
+  background-image: url('http://www.jamesfoster.org/tecm4400/images/group1.jpg');
+}
+.front-pic {
+  width: 95%;
+  
+}
+.comm1 {
+  font-size: 55px;
+  font-weight: bold;
+  color: #B7AD3C;
+}
+
+.comm2 {
+  font-size: 55px;
+  font-weight: bold;
+  color: #6C4996;
+}
+
+.comm3 {
+  font-size: 55px;
+  font-weight: bold;
+  color: #3B8784;
+}
+
+.comm4 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #aaaaaa;
+}
+
+.comm5 {
+  font-size: 65px;
+  font-weight: bold;
+  color: #6C4996;
+  margin-top: 15px;
+}
+
+
+.group-box {
+	width: 250px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	padding: 10px;
+	margin-bottom:10px;
+	box-shadow: 3px 3px 3px #888;
+}
+
+#MyGroups {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.black {
+  color: black;
+}
+ul {
+  list-style-type: none;
+}
+
+.lispacing {
+  padding: 10px;
+  padding-right: 20px;
+}
+
+.field {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 5px;
+	color: #777;
+	width: 100%;
+}
+
+.field2 {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	width: 50%;
+	padding: 5px;
+	color: #777;
+}
+
+.submit1 {
+	border: 0px;
+	background-color: #eee;
+	padding: 0px;
+}
+
+.input{
+  width: 300px;
+}
+
+.date{
+  width: 200px;
+}
+
+.time{
+  width: 100px;
+}
+
+/*==================Set up============*/
+
+.h1-top {
+  margin-top: 200px;
+}
+
+.btn {
+  background-color: #DE9861 !important;
+  color: #000 !important;
+  font-size: 20px;
+  &:hover {
+    background-color: #3B8784 !important;
+    color: #ded461 !important;
+  }
+}
+
+.btn-padding {
+  padding: 15px;
+}
+
+/*==================Calendar============*/
+
+.bubble {
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #888;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 2px;
+}
+
+#cal .calendar {
+  border-collapse: collapse;
+  width: 100%;
+
+  td, th {
+    font-family: "Lucida Grande", arial, helvetica, sans-serif;
+    font-size: 10px;
+    padding: 6px;
+    border: 1px solid #999;
+  }
+
+  th {
+    background: #DDD;
+    color: #666;
+    text-align: center;
+    width: 14.2857142857143%;
+  }
+
+  td {
+    background: #FFF;
+    color: #777;
+    height: 80px;
+    vertical-align: top;
+    font-size: 16px;
+  }
+
+  .notmonth, .notmonth a { color: #CCC; }
+  .today { background-color: #E9C46A; }
+}
+
+#cal #month {
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 22px;
+  a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #F4A261;
+  }
+}
+
+#cal ul {
+  font-size: 11px;
+  padding-left: 20px;
+}
+.input-number {
+  width: 50px;
+}
+
+.calendar-link a {
+  color: black !important;
+}
+
+/*===================MAIN SHOW PAGE=============*/
+.project-header {
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.main-tile {
+  background: #ded461;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 520px;
+}
+.task-tile {
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  background: #DFAA48;
+}
+.tasks {
+  padding: 20px;
+}
+
+.document-tile {
+  background: #3b8784;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 250px;
+}
+
+.project-tile {
+  padding: 15px;
+  border-radius: 10px;
+  color: white !important;;
+  background: #824C71;
+}
+
+#tasks {
+  margin: 0 auto;
+  width: 100%;
+  .box {
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+    background: #35605a;
+    color: white;
+    border-radius: 10px;
+  }
+}
+.group-tile {
+  padding: 10px;
+  border-radius: 10px;
+  background: #de9861;
+  color: white !important;
+  min-height: 250px;
+}
+.group-tile h2, .document-tile h2, .task-tile h2, .main-tile h2 {
+  color: white !important;
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.project-tile h3 {
+  color: white !important;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: 'Fira Sans', sans-serif;
+}
+h4.task {
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Fira Sans', sans-serif;
+  margin-left: 20px;
+}
+.document-tile a {
+  color: white !important;
+}
+
+.underline {
+  width: 40px;
+  border-bottom: 4px solid white;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+.underline-left {
+  width: 40px;
+  border-bottom: 4px solid white;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+.nav-tile {
+  background: #6B818C;
+}
+
+/*===================Forms=============*/
+.project-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
+}
+
+.group-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
+}
+
+.task-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
+}
+
+.document-form{
+  padding: 10px;
+  border-radius: 10px;
+  background: #DCCCA3;
+}
