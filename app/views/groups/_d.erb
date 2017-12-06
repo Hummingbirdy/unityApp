@@ -1,31 +1,43 @@
 <div class="modal fade" id="myModal-documents" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-
       <%= form_with(model: group, local: true) do |form| %>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title" id="myModalLabel"><%= group.title %> Documents</h3>
+        </div>
         <div class="modal-body">
-          <div class="form-group row">
+          <div class="form-group">
             <%= form.nested_fields_for :documents do |document| %>
-                <div align="right" class="col-md-3">
-                  <label>Documents: </label>
+              <div class="document-form">
+                <div class="row">
+                  <div class="col-md-11"></div>
+                  <div class="col-md-1">
+                    <div class="pull-right">
+                      <%= document.remove_nested_fields_link %>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-6">
-                  <%= document.text_field :name, placeholder: 'document name', class: 'input' %>
-                  <%= document.file_field :attachment %>
-                  <%= document.remove_nested_fields_link %> <br />
+                <div class="form-group row">
+                  <div class="col-md-6">
+                    <%= document.text_field :name, placeholder: 'Document Name', class: 'input' %>
+                  </div>
                 </div>
+                <div class="form-group row">
+                  <div class="col-md-6"></div>
+                  <div class="col-md-3">
+                    <%= document.file_field :attachment %>
+                  </div>
+                </div>
+              </div>
+              <br/>
             <% end %>
             <%= form.add_nested_fields_link :documents, '+ Add Documents' %>
           </div>
         </div>
-          <div class="modal-footer">
-            <button class="btn-standard" data-dismiss="modal" aria-hidden="true">Close</button>
-            <%= form.submit 'Save', class: 'btn-standard' %>
-          </div>
+        <div class="modal-footer">
+          <%= form.submit 'Save', class: 'btn btn-standard' %>
+        </div>
       <% end %>
     </div>
   </div>
