@@ -19,6 +19,12 @@ html {
 body {
   height:100%;
   background: #f7f6f4;
+  padding: 0;
+  margin: 0;
+
+}
+.container-fluid {
+  padding: 0 !important;
 }
 
 a, a:visited{
@@ -66,6 +72,10 @@ a:hover {
   width: 50px;
 }
 
+.triangle-size2 {
+  width: 75px;
+}
+
 .link{
   padding: 20px;
   position: absolute;
@@ -86,6 +96,7 @@ nav {
   }
   
 }
+
 .navbar-default {
    background: #aaa !important;
    
@@ -100,8 +111,29 @@ nav {
 }
 /*==================Landing Page============*/
 
+
+.maincenter {
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+   font-size: 18px;
+   color: #000;
+}
+.maincenter2 {
+   margin-left: auto;
+   margin-right: auto;
+   width: 55%;
+   font-size: 18px;
+   color: #000;
+}
 .fonthomepage {
   font-size: 55px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.fonthomepage2 {
+  font-size: 65px;
   font-weight: bold;
   color: #fff;
 }
@@ -110,6 +142,23 @@ nav {
   min-height: 100%;
   padding-top: 358px;
   padding-bottom: 357px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+}
+.divspan2 {
+  min-height: 100%;
+  padding-top: 300px;
+  padding-bottom: 322px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+}
+
+.divspan3 {
+  min-height: 100%;
+  padding-top: 0px;
+  padding-bottom: 0px;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 100%;
