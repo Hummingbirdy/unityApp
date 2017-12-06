@@ -59,9 +59,9 @@
         </div>
       </div>
 <% else %>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding: 0 100px 20px 100px;">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           <div id="cal">
             <h2 id="month">
               <%= link_to '<', date: @date.prev_month, class: 'arrows' %>
@@ -103,7 +103,7 @@
           </div>
 
         </div>
-        <div class="col-md-4" style="margin-top: -60px;">
+        <div class="col-md-3" style="margin-top: -60px;">
           <br/>
           <br/>
           <br/>
@@ -117,7 +117,7 @@
                         <h4><b><%= group.title %></b></h4>
                         <div class="black"><%= group.description %></div>
                         <p style="line-height: 2;">
-                        <h5><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <h5 class="pull-right"><%= link_to 'View', group %>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
                         <%= link_to 'Delete', group, method: :delete, data: { confirm: 'Are you sure?' } %></h5></p>
                       </div>
                     </a>
