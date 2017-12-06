@@ -14,7 +14,7 @@
         UNITY
 
     - if user_signed_in?
-      .nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav.navbar-right
         .link= link_to 'New Group', new_group_path
         .link= link_to 'Profile', edit_user_registration_path
         .link= link_to 'Sign Out', destroy_user_session_path, method: :delete
