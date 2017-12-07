@@ -14,12 +14,12 @@
         UNITY
 
     - if user_signed_in?
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav.navbar-default.navbar-right
         %li= link_to 'NEW GROUP', new_group_path
         %li= link_to 'PROFILE', edit_user_registration_path
         %li= link_to 'SIGN OUT', destroy_user_session_path, method: :delete
     - else
-      %ul.nav.navbar-nav.navbar-right
+      %ul.nav.navbar-nav.navbar-default2.navbar-right
         %li= link_to 'SIGN UP', new_user_registration_path
         %li= link_to 'SIGN IN', new_user_session_path
   .container-fluid

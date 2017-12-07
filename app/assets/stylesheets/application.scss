@@ -71,10 +71,13 @@ a:hover {
     position: absolute;
     margin-left: 0;
     width: 200px;
+      z-index: 10001;
+  position: absolute;
   }
 
 .triangle-size {
   width: 50px;
+
 }
 
 .triangle-size2 {
@@ -98,17 +101,36 @@ nav {
     font-weight: bold;
     padding-left: 65px;
     position: absolute;
+    z-index: 100000001;
+  }
+
+  .navbar-brand a:hover {
+    color: #3b8784 !important;
   }
   
 }
 
+
+
 .navbar-default {
    background: #aaa !important;
-   
-   z-index: 1000;
+   font-size: 20px;
 }
 
 .navbar-default a {
+  color: white !important;
+   &:hover {
+      color: #3B8784 !important;
+   }
+}
+
+.navbar-default2 {
+   z-index: 10001;
+   position: relative;
+   font-size: 20px;
+}
+
+.navbar-default2 a {
   color: white !important;
    &:hover {
       color: #3B8784 !important;
@@ -146,16 +168,16 @@ nav {
 
 .divspan {
   min-height: 100%;
-  margin-top: 10px;
+  margin-top: 0px;
   padding-top: 358px;
-  padding-bottom: 357px;
+  padding-bottom: 355px;
   background-repeat: no-repeat;
   background-position: top center;
   background-size: 100%;
 }
 .divspan2 {
   min-height: 100%;
-  margin-top: 10px;
+  margin-top: 0px;
   padding-top: 300px;
   padding-bottom: 298px;
   background-repeat: no-repeat;
@@ -165,7 +187,7 @@ nav {
 
 .divspan3 {
   min-height: 100%;
-  margin-top: 10px;
+  margin-top: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
   background-repeat: no-repeat;
