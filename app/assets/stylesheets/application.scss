@@ -376,7 +376,7 @@ ul {
   }
 
   .notmonth, .notmonth a { color: #CCC; }
-  .today { background-color: #E9C46A; }
+  .today { background-color: #DED361; }
 }
 
 #cal #month {
@@ -411,19 +411,18 @@ ul {
 }
 
 .main-tile {
-  background: #ded461;
+  background: #155B58;
   padding: 15px;
   border-radius: 10px;
   min-height: 520px;
 }
-.task-tile {
-  padding: 15px;
-  border-radius: 10px;
-  color: white;
-  background: #DFAA48;
-}
+
 .tasks {
   padding: 20px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #B8A3D3;
+  border-radius: 10px;
 }
 
 .document-tile {
@@ -437,21 +436,9 @@ ul {
   padding: 15px;
   border-radius: 10px;
   color: white !important;;
-  background: #824C71;
+  background: #8C6FB1;
 }
 
-#tasks {
-  margin: 0 auto;
-  width: 100%;
-  .box {
-    margin: 10px;
-    width: 100px;
-    text-align: center;
-    background: #35605a;
-    color: white;
-    border-radius: 10px;
-  }
-}
 .group-tile {
   padding: 10px;
   border-radius: 10px;
@@ -473,11 +460,10 @@ ul {
   text-transform: uppercase;
   font-family: 'Fira Sans', sans-serif;
 }
-h4.task {
+h4.task-title {
   color: white;
   text-transform: uppercase;
   font-family: 'Fira Sans', sans-serif;
-  margin-left: 20px;
 }
 .document-tile a {
   color: white !important;
@@ -503,23 +489,23 @@ h4.task {
 .project-form{
   padding: 10px;
   border-radius: 10px;
-  background: #DCCCA3;
+  background: #98C9C7;
 }
 
 .group-form{
   padding: 10px;
   border-radius: 10px;
-  background: #DCCCA3;
+  background: #98C9C7;
 }
 
 .task-form{
   padding: 10px;
   border-radius: 10px;
-  background: #DCCCA3;
+  background: #98C9C7;
 }
 
 .document-form{
   padding: 10px;
   border-radius: 10px;
-  background: #DCCCA3;
+  background: #98C9C7;
 }

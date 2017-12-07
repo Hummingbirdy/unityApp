@@ -92,7 +92,7 @@
                               <% end %>
                           <% end %>
                           <% if project.group.user == current_user || show == true %>
-                              <div class="bubble" style="background-color: #<%= project.group.hex%>">
+                              <div class="bubble" style="background-color: #<%= project.group.hex%>" align="center">
                                 <li class="calendar-link"><%= link_to project.name, group_path(project.group_id) %></li>
                               </div>
                           <% end %>
@@ -103,8 +103,8 @@
                   <ul>
                     <% @tasks_by_date[date].each do |task| %>
                         <% if task.member == current_user.email %>
-                            <div class="bubble" style="background-color: #<%= task.project.group.hex%>">
-                              <li class="calendar-link"><%= link_to task.name, group_path(task.project.group_id) %></li>
+                            <div class="bubble" style="background-color: #<%= task.project.group.hex%>" align="center">
+                              <li class="calendar-link"><%= link_to task.project.name + ' - ' + task.name, group_path(task.project.group_id) %></li>
                             </div>
                         <% end %>
                     <% end %>
@@ -151,7 +151,7 @@
                 <br/>
             <% end %>
           </div>
-          <h4 class="pull-right"><%= link_to '+ New Group', new_group_path %></h4>
+          <h4 class="pull-right" style="padding-right: 15px;"><%= link_to '+ New Group', new_group_path %></h4>
         <!--<p style="color: #cc0514;" id="notice"><%= notice %></p>-->
       </div>
 

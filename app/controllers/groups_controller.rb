@@ -22,6 +22,11 @@ class GroupsController < ApplicationController
     if @group.documents.count.zero?
       @group.documents.build
     end
+    for project in @group.projects
+      if project.tasks.count.zero?
+        project.tasks.build
+      end
+    end
     @teammates = @group.teammates
   end
 
