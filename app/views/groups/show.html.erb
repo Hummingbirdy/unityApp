@@ -28,7 +28,10 @@
         <ul>
           <% for document in @group.documents %>
               <% if document.name != nil %>
-                <li><%= link_to document.name, document.attachment_url %></li>
+                <!--<li><%#= link_to document.name + '  <i class="fa fa-download" aria-hidden="true"></i>'.html_safe, document.attachment_url %></li>-->
+                  <%= link_to document.attachment_url do %>
+                      <li><%= document.name %>  <i class="fa fa-download" aria-hidden="true"></i></li>
+                  <% end %>
               <% end %>
           <% end %>
         </ul>
@@ -55,8 +58,8 @@
                 <h3><b><%= project.name %></b> <font style="font-size: 12px;">(<i>Due: <%= project.due_date %> <% if project.due_time %><%= project.due_time.strftime(" at %I:%M %p") %> <% end %></i>)</font></h3>
                 <font style="font-size: 15px;"><%=project.description %></font></li>
 
-                <h4 class="task">Tasks</h4>
-                <div class="underline-left"></div>
+                <h4 align="center" class="task-title">Tasks</h4>
+                <div class="underline"></div>
                 <div align="center">
                   <a href="#myModal-tasks-<%= project.id %>" role="button" data-toggle="modal">
                     <h1><i class="fa fa-pencil-square-o" style="color: #E76F51" aria-hidden="true"></i></h1>
@@ -64,6 +67,7 @@
                 </div>
                 <div id="tasks">
                   <% for task in project.tasks %>
+                      <% if task.name != nil %>
                         <div class="row tasks">
                           <div class="col-md-7">
                             <div><b><%= task.name %></b></div>
@@ -81,6 +85,7 @@
                           <br />
                         </div>
                         <br>
+                      <% end %>
                   <% end %>
                 </div>
               </div>
