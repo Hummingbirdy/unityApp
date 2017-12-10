@@ -36,13 +36,13 @@
             </div>
           <% end %>
 
-          <div align="center" class="col-md-8">
+          <div align="center" class="col-md-10">
             <div class="group-form">
               <div class="form-group row">
                 <div align="right" class="col-md-3">
                   <lable><b>Class Name</b></lable>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                   <%= form.text_field :title, id: :group_title, placeholder: 'e.g., MATH 1500', class: 'input' %>
                 </div>
               </div>
@@ -51,7 +51,7 @@
                 <div align="right" class="col-md-3">
                   <%= form.label :description %>:
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-6">
                   <%= form.text_area :description, id: :group_description, placeholder: 'optional', class: 'input' %>
                 </div>
               </div>
@@ -62,6 +62,8 @@
                     </div>
                     <div class="col-md-6">
                       <%= member.text_field :email, placeholder: 'email', class: 'input' %>
+                    </div>
+                    <div class="col-md-1">
                       <%= member.remove_nested_fields_link %> <br />
                     </div>
                 <%end %>
